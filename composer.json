@@ -1,0 +1,64 @@
+{
+  "name": "mammatus/cron",
+  "type": "composer-plugin",
+  "description": "⏱️ Cron manager",
+  "license": "MIT",
+  "require": {
+    "php": "^7.4",
+    "mammatus/cron-attributes": "dev-main",
+    "wyrihaximus/react-cron": "^1.0"
+  },
+  "require-dev": {
+    "wyrihaximus/async-test-utilities": "^3"
+  },
+  "config": {
+    "platform": {
+      "php": "7.4.7"
+    },
+    "sort-packages": true
+  },
+  "extra": {
+    "class": "Mammatus\\Cron\\Composer\\Installer",
+    "mammatus": {
+      "http": {
+        "server": {
+          "has-vhosts": true
+        }
+      }
+    },
+    "php-di-definitions": {
+      "di": [
+        "etc/di/*.php"
+      ]
+    },
+    "wyrihaximus": {
+      "broadcast": {
+        "has-listeners": true
+      }
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "Mammatus\\Cron\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Mammatus\\Tests\\Cron\\": "tests/"
+    }
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "composer normalize"
+    ],
+    "post-update-cmd": [
+      "composer normalize"
+    ],
+    "pre-autoload-dump": [
+      "Mammatus\\Cron\\Composer\\Installer::findActions"
+    ],
+    "generate-config": [
+      "Mammatus\\Cron\\Composer\\Installer::findActions"
+    ]
+  }
+}
