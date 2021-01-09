@@ -5,8 +5,17 @@
   "license": "MIT",
   "require": {
     "php": "^7.4",
+    "doctrine/annotations": "^1.11",
+    "illuminate/collections": "^8.21",
     "mammatus/cron-attributes": "dev-main",
-    "wyrihaximus/react-cron": "^1.0"
+    "mammatus/cron-contracts": "dev-main",
+    "mammatus/life-cycle-events": "^1.0",
+    "wyrihaximus/iterator-or-array-to-array": "^1.1",
+    "wyrihaximus/list-classes-in-directory": "^1.3",
+    "wyrihaximus/react-cron": "dev-master",
+    "wyrihaximus/simple-twig": "^2.0",
+    "wyrihaximus/string-get-in": "^1.0",
+    "wyrihaximus/ticking-promise": "^2.1"
   },
   "require-dev": {
     "wyrihaximus/async-test-utilities": "^3"
@@ -20,10 +29,8 @@
   "extra": {
     "class": "Mammatus\\Cron\\Composer\\Installer",
     "mammatus": {
-      "http": {
-        "server": {
-          "has-vhosts": true
-        }
+      "cron": {
+        "has-actions": true
       }
     },
     "php-di-definitions": {
