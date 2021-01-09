@@ -27,7 +27,7 @@ abstract class AbstractManager
             $mutex,
             {% for action in actions %}
             new Action(
-                'cron_{{ action.cron.name() }}',
+                'cron_{{ action.cron.name() }}_{{ action.class|replace({'\\': '_'}) }}',
                 {{ action.cron.ttl() }},
                 '{{ action.cron.schedule() }}',
                 static fn (): PromiseInterface => $container->get(\{{ action.class }}::class)->perform()
