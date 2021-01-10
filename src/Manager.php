@@ -10,9 +10,10 @@ use Mammatus\LifeCycleEvents\Shutdown;
 use Psr\Container\ContainerInterface;
 use Psr\Log\LoggerInterface;
 use React\EventLoop\LoopInterface;
+use WyriHaximus\Broadcast\Contracts\Listener;
 use WyriHaximus\React\Mutex\MutexInterface;
 
-final class Manager extends AbstractManager
+final class Manager extends AbstractManager implements Listener
 {
     private LoggerInterface $logger;
     private LoopInterface $loop;

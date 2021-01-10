@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "68fdf2cfe2049f1d61585ee9a6a17686",
+    "content-hash": "427011b7f4d8a1aee16417989c7008d6",
     "packages": [
         {
             "name": "amphp/amp",
@@ -1580,22 +1580,22 @@
         },
         {
             "name": "felixfbecker/advanced-json-rpc",
-            "version": "v3.1.1",
+            "version": "v3.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/felixfbecker/php-advanced-json-rpc.git",
-                "reference": "0ed363f8de17d284d479ec813c9ad3f6834b5c40"
+                "reference": "804ee564f1c7f0bc160d755fc5bdd17a04545070"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/felixfbecker/php-advanced-json-rpc/zipball/0ed363f8de17d284d479ec813c9ad3f6834b5c40",
-                "reference": "0ed363f8de17d284d479ec813c9ad3f6834b5c40",
+                "url": "https://api.github.com/repos/felixfbecker/php-advanced-json-rpc/zipball/804ee564f1c7f0bc160d755fc5bdd17a04545070",
+                "reference": "804ee564f1c7f0bc160d755fc5bdd17a04545070",
                 "shasum": ""
             },
             "require": {
                 "netresearch/jsonmapper": "^1.0 || ^2.0",
                 "php": ">=7.0",
-                "phpdocumentor/reflection-docblock": "^4.0.0 || ^5.0.0"
+                "phpdocumentor/reflection-docblock": "^4.3.4 || ^5.0.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "^6.0.0"
@@ -1619,9 +1619,9 @@
             "description": "A more advanced JSONRPC implementation",
             "support": {
                 "issues": "https://github.com/felixfbecker/php-advanced-json-rpc/issues",
-                "source": "https://github.com/felixfbecker/php-advanced-json-rpc/tree/master"
+                "source": "https://github.com/felixfbecker/php-advanced-json-rpc/tree/v3.1.2"
             },
-            "time": "2020-03-11T15:21:41+00:00"
+            "time": "2021-01-10T13:07:47+00:00"
         },
         {
             "name": "felixfbecker/language-server-protocol",
@@ -2868,12 +2868,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/MammatusPHP/cron-attributes.git",
-                "reference": "228a02ff1a9bcd26a5d791e87af540229b71aa8e"
+                "reference": "73277f6cc1c66cc963c2c0556f092364a1677d53"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/MammatusPHP/cron-attributes/zipball/228a02ff1a9bcd26a5d791e87af540229b71aa8e",
-                "reference": "228a02ff1a9bcd26a5d791e87af540229b71aa8e",
+                "url": "https://api.github.com/repos/MammatusPHP/cron-attributes/zipball/73277f6cc1c66cc963c2c0556f092364a1677d53",
+                "reference": "73277f6cc1c66cc963c2c0556f092364a1677d53",
                 "shasum": ""
             },
             "require": {
@@ -2895,7 +2895,7 @@
                 "issues": "https://github.com/MammatusPHP/cron-attributes/issues",
                 "source": "https://github.com/MammatusPHP/cron-attributes/tree/main"
             },
-            "time": "2021-01-09T22:47:02+00:00"
+            "time": "2021-01-09T23:09:18+00:00"
         },
         {
             "name": "mammatus/cron-contracts",
@@ -8830,6 +8830,46 @@
                 }
             ],
             "time": "2021-01-04T16:21:56+00:00"
+        },
+        {
+            "name": "wyrihaximus/broadcast-contracts",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/WyriHaximus/php-broadcast-contracts.git",
+                "reference": "86e8abb0e1a793b09e5bf0d867f56c061e53ae6b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/WyriHaximus/php-broadcast-contracts/zipball/86e8abb0e1a793b09e5bf0d867f56c061e53ae6b",
+                "reference": "86e8abb0e1a793b09e5bf0d867f56c061e53ae6b",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "WyriHaximus\\Broadcast\\Contracts\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "✨ Contracts for wyrihaximus/broadcast",
+            "support": {
+                "issues": "https://github.com/WyriHaximus/php-broadcast-contracts/issues",
+                "source": "https://github.com/WyriHaximus/php-broadcast-contracts/tree/master"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/WyriHaximus",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-05-11T16:20:52+00:00"
         },
         {
             "name": "wyrihaximus/coding-standard",
