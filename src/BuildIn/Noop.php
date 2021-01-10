@@ -22,7 +22,7 @@ final class Noop implements Action
         $this->loop = $loop;
     }
 
-    public function Perform(): PromiseInterface
+    public function perform(): PromiseInterface
     {
         return timedPromise($this->loop, 3, true);
     }
