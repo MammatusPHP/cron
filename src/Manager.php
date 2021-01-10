@@ -20,6 +20,14 @@ final class Manager extends AbstractManager implements Listener
     private MutexInterface $mutex;
     private ContainerInterface $container;
 
+    public function __construct(LoggerInterface $logger, LoopInterface $loop, MutexInterface $mutex, ContainerInterface $container)
+    {
+        $this->logger = $logger;
+        $this->loop = $loop;
+        $this->mutex = $mutex;
+        $this->container = $container;
+    }
+
     public function start(Initialize $event): void
     {
         $this->logger->debug('Starting cron manager');
