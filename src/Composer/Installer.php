@@ -79,7 +79,6 @@ final class Installer implements PluginInterface, EventSubscriberInterface
                     if (strpos($class, $ns) === 0) {
                         $fileName = $p . str_replace('\\', DIRECTORY_SEPARATOR, substr($class, strlen($ns))) . '.php';
                         if (file_exists($fileName)) {
-                            echo  $fileName;
                             include $fileName;
                         }
                     }
