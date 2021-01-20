@@ -11,7 +11,7 @@ use Psr\Container\ContainerInterface;
 use Psr\Log\LoggerInterface;
 use React\EventLoop\LoopInterface;
 use WyriHaximus\Broadcast\Contracts\Listener;
-use WyriHaximus\React\Mutex\MutexInterface;
+use WyriHaximus\React\Mutex\Contracts\MutexInterface;
 
 final class Manager extends AbstractManager implements Listener
 {
