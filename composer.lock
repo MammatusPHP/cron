@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "75253d0ac06fe12a8f444fb40866bbd4",
+    "content-hash": "80e54ee0d09f43278f62635528e0da63",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -273,16 +273,16 @@
         },
         {
             "name": "illuminate/collections",
-            "version": "v8.23.1",
+            "version": "v8.24.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/collections.git",
-                "reference": "c9227225ac1cc298bee78973477bf9c4692e8f83"
+                "reference": "3c968b76c395c4ac94d378d4bdeea1af0e8ad44c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/collections/zipball/c9227225ac1cc298bee78973477bf9c4692e8f83",
-                "reference": "c9227225ac1cc298bee78973477bf9c4692e8f83",
+                "url": "https://api.github.com/repos/illuminate/collections/zipball/3c968b76c395c4ac94d378d4bdeea1af0e8ad44c",
+                "reference": "3c968b76c395c4ac94d378d4bdeea1af0e8ad44c",
                 "shasum": ""
             },
             "require": {
@@ -323,20 +323,20 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2021-01-15T13:51:46+00:00"
+            "time": "2021-01-20T14:16:15+00:00"
         },
         {
             "name": "illuminate/contracts",
-            "version": "v8.23.1",
+            "version": "v8.24.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
-                "reference": "073109b521aec104f11c5cf5aded97aa0e63f313"
+                "reference": "b91459a9a0bd0de204c3cae6859ebd02dbcee6c6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/contracts/zipball/073109b521aec104f11c5cf5aded97aa0e63f313",
-                "reference": "073109b521aec104f11c5cf5aded97aa0e63f313",
+                "url": "https://api.github.com/repos/illuminate/contracts/zipball/b91459a9a0bd0de204c3cae6859ebd02dbcee6c6",
+                "reference": "b91459a9a0bd0de204c3cae6859ebd02dbcee6c6",
                 "shasum": ""
             },
             "require": {
@@ -371,11 +371,11 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2020-12-18T14:24:20+00:00"
+            "time": "2021-01-20T14:18:13+00:00"
         },
         {
             "name": "illuminate/macroable",
-            "version": "v8.23.1",
+            "version": "v8.24.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/macroable.git",
@@ -1431,12 +1431,12 @@
             "version": "1.9.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/webmozart/assert.git",
+                "url": "https://github.com/webmozarts/assert.git",
                 "reference": "bafc69caeb4d49c39fd0779086c03a3738cbb389"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webmozart/assert/zipball/bafc69caeb4d49c39fd0779086c03a3738cbb389",
+                "url": "https://api.github.com/repos/webmozarts/assert/zipball/bafc69caeb4d49c39fd0779086c03a3738cbb389",
                 "reference": "bafc69caeb4d49c39fd0779086c03a3738cbb389",
                 "shasum": ""
             },
@@ -1474,8 +1474,8 @@
                 "validate"
             ],
             "support": {
-                "issues": "https://github.com/webmozart/assert/issues",
-                "source": "https://github.com/webmozart/assert/tree/master"
+                "issues": "https://github.com/webmozarts/assert/issues",
+                "source": "https://github.com/webmozarts/assert/tree/1.9.1"
             },
             "time": "2020-07-08T17:02:28+00:00"
         },
@@ -1664,12 +1664,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/WyriHaximus/reactphp-cron.git",
-                "reference": "188391de80facce202e58e5d2b5d3f74339de365"
+                "reference": "40c83d961a097e94b254de0dea489276fe71e937"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WyriHaximus/reactphp-cron/zipball/188391de80facce202e58e5d2b5d3f74339de365",
-                "reference": "188391de80facce202e58e5d2b5d3f74339de365",
+                "url": "https://api.github.com/repos/WyriHaximus/reactphp-cron/zipball/40c83d961a097e94b254de0dea489276fe71e937",
+                "reference": "40c83d961a097e94b254de0dea489276fe71e937",
                 "shasum": ""
             },
             "require": {
@@ -1678,7 +1678,8 @@
                 "react/event-loop": "^1.1",
                 "react/promise": "^2.7",
                 "wyrihaximus/constants": "^1.6",
-                "wyrihaximus/react-mutex": "dev-master"
+                "wyrihaximus/react-mutex": "dev-master",
+                "wyrihaximus/react-mutex-contracts": "^1.0"
             },
             "require-dev": {
                 "wyrihaximus/async-test-utilities": "^3.3.3"
@@ -1704,7 +1705,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-01-08T20:00:44+00:00"
+            "time": "2021-01-21T23:06:07+00:00"
         },
         {
             "name": "wyrihaximus/react-mutex",
@@ -1712,12 +1713,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/WyriHaximus/reactphp-mutex.git",
-                "reference": "79d916ea79541ad65192a6f62a5b592a64469f67"
+                "reference": "fe4b4f08dd8726e49bcbb5f390e7128e3bfaccfb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WyriHaximus/reactphp-mutex/zipball/79d916ea79541ad65192a6f62a5b592a64469f67",
-                "reference": "79d916ea79541ad65192a6f62a5b592a64469f67",
+                "url": "https://api.github.com/repos/WyriHaximus/reactphp-mutex/zipball/fe4b4f08dd8726e49bcbb5f390e7128e3bfaccfb",
+                "reference": "fe4b4f08dd8726e49bcbb5f390e7128e3bfaccfb",
                 "shasum": ""
             },
             "require": {
@@ -1726,11 +1727,11 @@
                 "react/event-loop": "^1.1",
                 "react/promise": "^2.7",
                 "wyrihaximus/constants": "^1.6",
-                "wyrihaximus/react-mutex-contracts": "dev-master",
+                "wyrihaximus/react-mutex-contracts": "^1.0",
                 "wyrihaximus/ticking-promise": "^2.1"
             },
             "require-dev": {
-                "wyrihaximus/react-mutex-test-utilities": "dev-master"
+                "wyrihaximus/react-mutex-test-utilities": "^1.0"
             },
             "default-branch": true,
             "type": "library",
@@ -1754,20 +1755,20 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-01-19T19:57:28+00:00"
+            "time": "2021-01-21T19:57:46+00:00"
         },
         {
             "name": "wyrihaximus/react-mutex-contracts",
-            "version": "dev-master",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/WyriHaximus/reactphp-mutex-contracts.git",
-                "reference": "81170a49a224ec268a43a7c48fbfa70a78021364"
+                "reference": "c2f97f027f2ffa114ca20ecbaa2aaadefdf8b84c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WyriHaximus/reactphp-mutex-contracts/zipball/81170a49a224ec268a43a7c48fbfa70a78021364",
-                "reference": "81170a49a224ec268a43a7c48fbfa70a78021364",
+                "url": "https://api.github.com/repos/WyriHaximus/reactphp-mutex-contracts/zipball/c2f97f027f2ffa114ca20ecbaa2aaadefdf8b84c",
+                "reference": "c2f97f027f2ffa114ca20ecbaa2aaadefdf8b84c",
                 "shasum": ""
             },
             "require": {
@@ -1777,7 +1778,6 @@
             "require-dev": {
                 "wyrihaximus/async-test-utilities": "^3.3"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -1791,7 +1791,7 @@
             "description": "Mutex locking contracts for ReactPHP projects",
             "support": {
                 "issues": "https://github.com/WyriHaximus/reactphp-mutex-contracts/issues",
-                "source": "https://github.com/WyriHaximus/reactphp-mutex-contracts/tree/master"
+                "source": "https://github.com/WyriHaximus/reactphp-mutex-contracts/tree/1.0.0"
             },
             "funding": [
                 {
@@ -1799,7 +1799,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-01-19T19:07:59+00:00"
+            "time": "2021-01-21T19:16:05+00:00"
         },
         {
             "name": "wyrihaximus/simple-twig",
@@ -9155,16 +9155,16 @@
         },
         {
             "name": "webmozart/glob",
-            "version": "4.2.0",
+            "version": "4.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webmozarts/glob.git",
-                "reference": "d1561806559682928e91de5822cd407ec2ace181"
+                "reference": "06358fafde0f32edb4513f4fd88fe113a40c90ee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webmozarts/glob/zipball/d1561806559682928e91de5822cd407ec2ace181",
-                "reference": "d1561806559682928e91de5822cd407ec2ace181",
+                "url": "https://api.github.com/repos/webmozarts/glob/zipball/06358fafde0f32edb4513f4fd88fe113a40c90ee",
+                "reference": "06358fafde0f32edb4513f4fd88fe113a40c90ee",
                 "shasum": ""
             },
             "require": {
@@ -9199,9 +9199,9 @@
             "description": "A PHP implementation of Ant's glob.",
             "support": {
                 "issues": "https://github.com/webmozarts/glob/issues",
-                "source": "https://github.com/webmozarts/glob/tree/4.2.0"
+                "source": "https://github.com/webmozarts/glob/tree/4.3.0"
             },
-            "time": "2021-01-14T18:11:58+00:00"
+            "time": "2021-01-21T06:17:15+00:00"
         },
         {
             "name": "webmozart/path-util",
@@ -9490,8 +9490,7 @@
         "mammatus/cron-attributes": 20,
         "mammatus/cron-contracts": 20,
         "wyrihaximus/react-cron": 20,
-        "wyrihaximus/react-mutex": 20,
-        "wyrihaximus/react-mutex-contracts": 20
+        "wyrihaximus/react-mutex": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
