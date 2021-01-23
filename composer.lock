@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "80e54ee0d09f43278f62635528e0da63",
+    "content-hash": "ddcb9d35e1405808130b1f30d794fae1",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1660,16 +1660,16 @@
         },
         {
             "name": "wyrihaximus/react-cron",
-            "version": "dev-use-mutex-v2",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/WyriHaximus/reactphp-cron.git",
-                "reference": "40c83d961a097e94b254de0dea489276fe71e937"
+                "reference": "0512ebe0191c487546a4ec1e3c90df113d623ef0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WyriHaximus/reactphp-cron/zipball/40c83d961a097e94b254de0dea489276fe71e937",
-                "reference": "40c83d961a097e94b254de0dea489276fe71e937",
+                "url": "https://api.github.com/repos/WyriHaximus/reactphp-cron/zipball/0512ebe0191c487546a4ec1e3c90df113d623ef0",
+                "reference": "0512ebe0191c487546a4ec1e3c90df113d623ef0",
                 "shasum": ""
             },
             "require": {
@@ -1678,7 +1678,7 @@
                 "react/event-loop": "^1.1",
                 "react/promise": "^2.7",
                 "wyrihaximus/constants": "^1.6",
-                "wyrihaximus/react-mutex": "dev-master",
+                "wyrihaximus/react-mutex": "^2.0",
                 "wyrihaximus/react-mutex-contracts": "^1.0"
             },
             "require-dev": {
@@ -1697,7 +1697,7 @@
             "description": "Cronlike scheduler running inside a ReactPHP Event Loop",
             "support": {
                 "issues": "https://github.com/WyriHaximus/reactphp-cron/issues",
-                "source": "https://github.com/WyriHaximus/reactphp-cron/tree/use-mutex-v2"
+                "source": "https://github.com/WyriHaximus/reactphp-cron/tree/2.0.0"
             },
             "funding": [
                 {
@@ -1705,20 +1705,20 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-01-21T23:06:07+00:00"
+            "time": "2021-01-22T20:35:38+00:00"
         },
         {
             "name": "wyrihaximus/react-mutex",
-            "version": "dev-master",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/WyriHaximus/reactphp-mutex.git",
-                "reference": "fe4b4f08dd8726e49bcbb5f390e7128e3bfaccfb"
+                "reference": "a7349a9d54b49568609ca714744255163f4a26ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WyriHaximus/reactphp-mutex/zipball/fe4b4f08dd8726e49bcbb5f390e7128e3bfaccfb",
-                "reference": "fe4b4f08dd8726e49bcbb5f390e7128e3bfaccfb",
+                "url": "https://api.github.com/repos/WyriHaximus/reactphp-mutex/zipball/a7349a9d54b49568609ca714744255163f4a26ac",
+                "reference": "a7349a9d54b49568609ca714744255163f4a26ac",
                 "shasum": ""
             },
             "require": {
@@ -1733,7 +1733,6 @@
             "require-dev": {
                 "wyrihaximus/react-mutex-test-utilities": "^1.0"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -1747,7 +1746,7 @@
             "description": "Mutex locking for ReactPHP projects",
             "support": {
                 "issues": "https://github.com/WyriHaximus/reactphp-mutex/issues",
-                "source": "https://github.com/WyriHaximus/reactphp-mutex/tree/master"
+                "source": "https://github.com/WyriHaximus/reactphp-mutex/tree/2.0.0"
             },
             "funding": [
                 {
@@ -1755,7 +1754,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-01-21T19:57:46+00:00"
+            "time": "2021-01-22T18:19:54+00:00"
         },
         {
             "name": "wyrihaximus/react-mutex-contracts",
@@ -9488,9 +9487,7 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "mammatus/cron-attributes": 20,
-        "mammatus/cron-contracts": 20,
-        "wyrihaximus/react-cron": 20,
-        "wyrihaximus/react-mutex": 20
+        "mammatus/cron-contracts": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
