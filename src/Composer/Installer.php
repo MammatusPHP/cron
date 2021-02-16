@@ -23,18 +23,33 @@ use Roave\BetterReflection\Reflector\ClassReflector;
 use Roave\BetterReflection\Reflector\Exception\IdentifierNotFound;
 use Roave\BetterReflection\SourceLocator\Type\Composer\Factory\MakeLocatorForComposerJsonAndInstalledJson;
 use Roave\BetterReflection\SourceLocator\Type\Composer\Psr\Exception\InvalidPrefixMapping;
-use function ApiClients\Tools\Rx\observableFromArray;
+
 use function array_key_exists;
+use function count;
 use function dirname;
+use function explode;
 use function file_exists;
+use function get_class;
+use function is_array;
+use function is_string;
 use function microtime;
+use function mkdir;
+use function round;
+use function rtrim;
 use function Safe\chmod;
 use function Safe\file_get_contents;
 use function Safe\file_put_contents;
+use function spl_autoload_register;
+use function sprintf;
+use function str_replace;
+use function strlen;
+use function strpos;
+use function substr;
 use function WyriHaximus\getIn;
 use function WyriHaximus\iteratorOrArrayToArray;
 use function WyriHaximus\listClassesInDirectories;
 use function WyriHaximus\Twig\render;
+
 use const DIRECTORY_SEPARATOR;
 
 final class Installer implements PluginInterface, EventSubscriberInterface
@@ -75,13 +90,17 @@ final class Installer implements PluginInterface, EventSubscriberInterface
         if (array_key_exists('psr-4', $composer->getPackage()->getAutoload())) {
             foreach ($composer->getPackage()->getAutoload()['psr-4'] as $ns => $p) {
                 $p = dirname($composer->getConfig()->get('vendor-dir')) . '/' . $p;
-                spl_autoload_register(static function ($class) use ($ns, $p) {
-                    if (strpos($class, $ns) === 0) {
-                        $fileName = $p . str_replace('\\', DIRECTORY_SEPARATOR, substr($class, strlen($ns))) . '.php';
-                        if (file_exists($fileName)) {
-                            include $fileName;
-                        }
+                spl_autoload_register(static function ($class) use ($ns, $p): void {
+                    if (strpos($class, $ns) !== 0) {
+                        return;
                     }
+
+                    $fileName = $p . str_replace('\\', DIRECTORY_SEPARATOR, substr($class, strlen($ns))) . '.php';
+                    if (! file_exists($fileName)) {
+                        return;
+                    }
+
+                    include $fileName;
                 });
             }
         }
@@ -149,7 +168,7 @@ final class Installer implements PluginInterface, EventSubscriberInterface
     private static function findAllActions(Composer $composer, IOInterface $io): array
     {
         $annotationReader = new AnnotationReader();
-        $vendorDir = $composer->getConfig()->get('vendor-dir');
+        $vendorDir        = $composer->getConfig()->get('vendor-dir');
 
         retry:
         try {
@@ -161,8 +180,7 @@ final class Installer implements PluginInterface, EventSubscriberInterface
             goto retry;
         }
 
-
-        $packages = $composer->getRepositoryManager()->getLocalRepository()->getCanonicalPackages();
+        $packages   = $composer->getRepositoryManager()->getLocalRepository()->getCanonicalPackages();
         $packages[] = $composer->getPackage();
 
         return (new Collection($packages))->filter(static function (PackageInterface $package): bool {
@@ -209,10 +227,9 @@ final class Installer implements PluginInterface, EventSubscriberInterface
         })->filter(static function (string $path): bool {
             return file_exists($path);
         })->flatMap(static function (string $path): array {
-            return
-                iteratorOrArrayToArray(
-                    listClassesInDirectories($path)
-                );
+            return iteratorOrArrayToArray(
+                listClassesInDirectories($path)
+            );
         })->flatMap(static function (string $class) use ($classReflector, $io): array {
             try {
                 /** @psalm-suppress PossiblyUndefinedVariable */
@@ -250,16 +267,18 @@ final class Installer implements PluginInterface, EventSubscriberInterface
                 ],
             ];
         })->filter(static function (array $classNAnnotations): bool {
-            if (!array_key_exists(Cron::class, $classNAnnotations['annotations'])) {
+            if (! array_key_exists(Cron::class, $classNAnnotations['annotations'])) {
                 return false;
             }
 
             return true;
         })->flatMap(static function (array $classNAnnotations): array {
-            return [[
-                'class' => $classNAnnotations['class'],
-                'cron' => $classNAnnotations['annotations'][Cron::class],
-            ]];
+            return [
+                [
+                    'class' => $classNAnnotations['class'],
+                    'cron' => $classNAnnotations['annotations'][Cron::class],
+                ],
+            ];
         })->toArray();
     }
 }
