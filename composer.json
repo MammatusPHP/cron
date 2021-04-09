@@ -13,7 +13,6 @@
     "mammatus/cron-attributes": "dev-main",
     "mammatus/cron-contracts": "dev-main",
     "mammatus/life-cycle-events": "^1.0",
-    "mammatus/metrics": "dev-master",
     "php-di-definitions/react-event-loop-inspected": "dev-master",
     "react-parallel/object-proxy": "dev-master",
     "react-parallel/psr-11-container-proxy": "dev-master",
