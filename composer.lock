@@ -704,7 +704,7 @@
         },
         {
             "name": "illuminate/collections",
-            "version": "v8.36.2",
+            "version": "v8.37.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/collections.git",
@@ -758,7 +758,7 @@
         },
         {
             "name": "illuminate/contracts",
-            "version": "v8.36.2",
+            "version": "v8.37.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
@@ -806,7 +806,7 @@
         },
         {
             "name": "illuminate/macroable",
-            "version": "v8.36.2",
+            "version": "v8.37.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/macroable.git",
@@ -1072,12 +1072,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/MammatusPHP/app.git",
-                "reference": "370b836cf9aeea5e04a857b5945b158790bad7cd"
+                "reference": "92123356f2f40e61a15356d7fed3d1a1ada260f5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/MammatusPHP/app/zipball/370b836cf9aeea5e04a857b5945b158790bad7cd",
-                "reference": "370b836cf9aeea5e04a857b5945b158790bad7cd",
+                "url": "https://api.github.com/repos/MammatusPHP/app/zipball/92123356f2f40e61a15356d7fed3d1a1ada260f5",
+                "reference": "92123356f2f40e61a15356d7fed3d1a1ada260f5",
                 "shasum": ""
             },
             "require": {
@@ -1175,7 +1175,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-04-09T13:48:00+00:00"
+            "time": "2021-04-16T10:55:47+00:00"
         },
         {
             "name": "mammatus/cron-attributes",
@@ -2902,12 +2902,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/reactphp-parallel/object-proxy.git",
-                "reference": "ae8e18ec0860ead65c778cce5654b980ef0b5dcd"
+                "reference": "1bf774d7778705b459bfc634f0e17839464814e4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/reactphp-parallel/object-proxy/zipball/ae8e18ec0860ead65c778cce5654b980ef0b5dcd",
-                "reference": "ae8e18ec0860ead65c778cce5654b980ef0b5dcd",
+                "url": "https://api.github.com/repos/reactphp-parallel/object-proxy/zipball/1bf774d7778705b459bfc634f0e17839464814e4",
+                "reference": "1bf774d7778705b459bfc634f0e17839464814e4",
                 "shasum": ""
             },
             "require": {
@@ -3004,7 +3004,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-04-07T17:55:46+00:00"
+            "time": "2021-04-14T08:42:21+00:00"
         },
         {
             "name": "react-parallel/object-proxy-attributes",
@@ -3068,12 +3068,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/reactphp-parallel/psr-11-container-proxy.git",
-                "reference": "aa37331f2953d27b9205bb768a3073216eab453f"
+                "reference": "988ffdb3af82e9447ef2f67a8fdb5e8b58908608"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/reactphp-parallel/psr-11-container-proxy/zipball/aa37331f2953d27b9205bb768a3073216eab453f",
-                "reference": "aa37331f2953d27b9205bb768a3073216eab453f",
+                "url": "https://api.github.com/repos/reactphp-parallel/psr-11-container-proxy/zipball/988ffdb3af82e9447ef2f67a8fdb5e8b58908608",
+                "reference": "988ffdb3af82e9447ef2f67a8fdb5e8b58908608",
                 "shasum": ""
             },
             "require": {
@@ -3125,7 +3125,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-04-06T07:27:29+00:00"
+            "time": "2021-04-16T13:36:11+00:00"
         },
         {
             "name": "react-parallel/react-parallel",
@@ -6804,23 +6804,23 @@
         },
         {
             "name": "doctrine/coding-standard",
-            "version": "8.2.0",
+            "version": "8.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/coding-standard.git",
-                "reference": "529d385bb3790431080493c0fe7adaec39df368a"
+                "reference": "f595b060799c1a0d76ead16981804eaa0bbcd8d6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/coding-standard/zipball/529d385bb3790431080493c0fe7adaec39df368a",
-                "reference": "529d385bb3790431080493c0fe7adaec39df368a",
+                "url": "https://api.github.com/repos/doctrine/coding-standard/zipball/f595b060799c1a0d76ead16981804eaa0bbcd8d6",
+                "reference": "f595b060799c1a0d76ead16981804eaa0bbcd8d6",
                 "shasum": ""
             },
             "require": {
                 "dealerdirect/phpcodesniffer-composer-installer": "^0.6.2 || ^0.7",
                 "php": "^7.1 || ^8.0",
-                "slevomat/coding-standard": "^6.3.9",
-                "squizlabs/php_codesniffer": "^3.5.5"
+                "slevomat/coding-standard": "^6.4.1",
+                "squizlabs/php_codesniffer": "^3.5.8"
             },
             "type": "phpcodesniffer-standard",
             "notification-url": "https://packagist.org/downloads/",
@@ -6853,9 +6853,9 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/coding-standard/issues",
-                "source": "https://github.com/doctrine/coding-standard/tree/8.2.0"
+                "source": "https://github.com/doctrine/coding-standard/tree/8.2.1"
             },
-            "time": "2020-10-25T14:56:19+00:00"
+            "time": "2021-04-03T10:54:55+00:00"
         },
         {
             "name": "ergebnis/composer-normalize",
@@ -12928,16 +12928,16 @@
         },
         {
             "name": "wyrihaximus/coding-standard",
-            "version": "2.3.0",
+            "version": "2.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/WyriHaximus/php-coding-standard.git",
-                "reference": "a9faf9a24c1c115962f8c141e958c4ef7aaac16a"
+                "reference": "b2e962f70b2b193ad41195b71a2daefcc849ea46"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WyriHaximus/php-coding-standard/zipball/a9faf9a24c1c115962f8c141e958c4ef7aaac16a",
-                "reference": "a9faf9a24c1c115962f8c141e958c4ef7aaac16a",
+                "url": "https://api.github.com/repos/WyriHaximus/php-coding-standard/zipball/b2e962f70b2b193ad41195b71a2daefcc849ea46",
+                "reference": "b2e962f70b2b193ad41195b71a2daefcc849ea46",
                 "shasum": ""
             },
             "require": {
@@ -12955,7 +12955,7 @@
             "description": "WyriHaximus Coding Standard",
             "support": {
                 "issues": "https://github.com/WyriHaximus/php-coding-standard/issues",
-                "source": "https://github.com/WyriHaximus/php-coding-standard/tree/2.3.0"
+                "source": "https://github.com/WyriHaximus/php-coding-standard/tree/2.4.0"
             },
             "funding": [
                 {
@@ -12963,7 +12963,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-01-27T20:28:30+00:00"
+            "time": "2021-04-09T18:27:57+00:00"
         },
         {
             "name": "wyrihaximus/phpstan-rules-wrapper",

@@ -7,20 +7,20 @@ namespace Mammatus\Cron\Worker;
 use Firehed\SimpleLogger\Stdout;
 use Mammatus\ContainerFactory;
 use Psr\Log\LoggerInterface;
-use ReactParallel\ObjectProxy\ProxyListInterface;
 use ReactParallel\Pool\Worker\Work\Worker;
 use ReactParallel\Pool\Worker\Work\WorkerFactory;
 use ReactParallel\Psr11ContainerProxy\ContainerProxy;
+use ReactParallel\Psr11ContainerProxy\OverridesProvider;
 use WyriHaximus\Monolog\Factory;
 
 final class ActionWorkerFactory implements WorkerFactory
 {
-    private ProxyListInterface $proxyList;
+    private OverridesProvider $overridesProvider;
     private ContainerProxy $proxy;
 
-    public function __construct(ProxyListInterface $proxyList, ContainerProxy $proxy)
+    public function __construct(OverridesProvider $overridesProvider, ContainerProxy $proxy)
     {
-        $this->proxyList = $proxyList;
+        $this->overridesProvider = $overridesProvider;
         $this->proxy = $proxy;
     }
 
@@ -28,12 +28,8 @@ final class ActionWorkerFactory implements WorkerFactory
     {
         $overrides = [];
 
-        foreach ($this->proxyList->interfaces() as $interface) {
-            $overrides[$interface] = fn (): object => $this->proxy->proxy()->get($interface);
-        }
-
-        foreach ($this->proxyList->noPromiseKnownInterfaces() as $noPromiseInterface => $interface) {
-            $overrides[$noPromiseInterface] = fn (): object => $this->proxy->proxy()->get($interface);
+        foreach ($this->overridesProvider->list() as $from => $to) {
+            $overrides[$from] = fn (): object => $this->proxy->proxy()->get($to);
         }
 
         $overrides[LoggerInterface::class] = static fn (): LoggerInterface => Factory::create('cron', new Stdout(), []);
