@@ -15,7 +15,7 @@ abstract class AbstractManager
 {
     private ?Cron $cron = null;
 
-    protected function cron(LoopInterface $loop, MutexInterface $mutex, ContainerInterface $container): Cron
+    protected function cron(LoopInterface $loop, MutexInterface $mutex): Cron
     {
         if ($this->cron instanceof Cron) {
             return $this->cron;
@@ -29,11 +29,13 @@ abstract class AbstractManager
                 'cron_{{ action.cron.name() }}_{{ action.class|replace({'\\': '_'}) }}',
                 {{ action.cron.ttl() }},
                 '{{ action.cron.schedule() }}',
-                static fn (): PromiseInterface => $container->get(\{{ action.class }}::class)->perform()
+                fn (): PromiseInterface => $this->perform(\{{ action.class }}::class)
             ),
             {% endfor %}
         );
 
         return $this->cron;
     }
+
+    abstract protected function perform(string $class): PromiseInterface;
 }
