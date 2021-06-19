@@ -7,15 +7,24 @@ namespace Mammatus\Cron\BuildIn;
 use Mammatus\Cron\Attributes\Cron;
 use Mammatus\Cron\Contracts\Action;
 
-use function sleep;
+use React\EventLoop\LoopInterface;
+use React\Promise\PromiseInterface;
+use function WyriHaximus\React\timedPromise;
 
 /**
  * @Cron(name="noop", ttl=120, schedule="* * * * *")
  */
 final class Noop implements Action
 {
-    public function perform(): void
+    private LoopInterface $loop;
+
+    public function __construct(LoopInterface $loop)
     {
-        sleep(3);
+        $this->loop = $loop;
+    }
+
+    public function perform(): PromiseInterface
+    {
+        return timedPromise($this->loop, 3, true);
     }
 }
