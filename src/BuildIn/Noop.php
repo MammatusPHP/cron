@@ -6,8 +6,6 @@ namespace Mammatus\Cron\BuildIn;
 
 use Mammatus\Cron\Attributes\Cron;
 use Mammatus\Cron\Contracts\Action;
-
-use React\EventLoop\LoopInterface;
 use React\Promise\PromiseInterface;
 use function WyriHaximus\React\timedPromise;
 
@@ -16,15 +14,8 @@ use function WyriHaximus\React\timedPromise;
  */
 final class Noop implements Action
 {
-    private LoopInterface $loop;
-
-    public function __construct(LoopInterface $loop)
-    {
-        $this->loop = $loop;
-    }
-
     public function perform(): PromiseInterface
     {
-        return timedPromise($this->loop, 3, true);
+        return timedPromise(3, true);
     }
 }

@@ -26,7 +26,7 @@
     "wyrihaximus/react-mutex-contracts": "^2 || ^1",
     "wyrihaximus/simple-twig": "^2.0",
     "wyrihaximus/string-get-in": "^1.0",
-    "wyrihaximus/ticking-promise": "^2.1"
+    "wyrihaximus/ticking-promise": "^3.0"
   },
   "require-dev": {
     "wyrihaximus/async-test-utilities": "^4"

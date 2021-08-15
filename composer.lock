@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4e157bfddd2129c6ddcde16de09bb0e6",
+    "content-hash": "a33110e7eef23292211fca2b0d62b3a9",
     "packages": [
         {
             "name": "api-clients/rx",
@@ -1298,16 +1298,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "2.2.0",
+            "version": "2.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "1cb1cde8e8dd0f70cc0fe51354a59acad9302084"
+                "reference": "71312564759a7db5b789296369c1a264efc43aad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/1cb1cde8e8dd0f70cc0fe51354a59acad9302084",
-                "reference": "1cb1cde8e8dd0f70cc0fe51354a59acad9302084",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/71312564759a7db5b789296369c1a264efc43aad",
+                "reference": "71312564759a7db5b789296369c1a264efc43aad",
                 "shasum": ""
             },
             "require": {
@@ -1326,7 +1326,7 @@
                 "php-amqplib/php-amqplib": "~2.4",
                 "php-console/php-console": "^3.1.3",
                 "phpspec/prophecy": "^1.6.1",
-                "phpstan/phpstan": "^0.12.59",
+                "phpstan/phpstan": "^0.12.91",
                 "phpunit/phpunit": "^8.5",
                 "predis/predis": "^1.1",
                 "rollbar/rollbar": "^1.3",
@@ -1378,7 +1378,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Seldaek/monolog/issues",
-                "source": "https://github.com/Seldaek/monolog/tree/2.2.0"
+                "source": "https://github.com/Seldaek/monolog/tree/2.3.2"
             },
             "funding": [
                 {
@@ -1390,7 +1390,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-12-14T13:15:25+00:00"
+            "time": "2021-07-23T07:42:52+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -1716,21 +1716,21 @@
         },
         {
             "name": "php-di/invoker",
-            "version": "2.3.0",
+            "version": "2.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHP-DI/Invoker.git",
-                "reference": "992fec6c56f2d1ad1ad5fee28267867c85bfb8f9"
+                "reference": "5214cbe5aad066022cd845dbf313f0e47aed928f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHP-DI/Invoker/zipball/992fec6c56f2d1ad1ad5fee28267867c85bfb8f9",
-                "reference": "992fec6c56f2d1ad1ad5fee28267867c85bfb8f9",
+                "url": "https://api.github.com/repos/PHP-DI/Invoker/zipball/5214cbe5aad066022cd845dbf313f0e47aed928f",
+                "reference": "5214cbe5aad066022cd845dbf313f0e47aed928f",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.3",
-                "psr/container": "~1.0"
+                "psr/container": "^1.0|^2.0"
             },
             "require-dev": {
                 "athletic/athletic": "~0.1.8",
@@ -1759,7 +1759,7 @@
             ],
             "support": {
                 "issues": "https://github.com/PHP-DI/Invoker/issues",
-                "source": "https://github.com/PHP-DI/Invoker/tree/2.3.0"
+                "source": "https://github.com/PHP-DI/Invoker/tree/2.3.2"
             },
             "funding": [
                 {
@@ -1767,7 +1767,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-01-15T10:25:40+00:00"
+            "time": "2021-07-30T15:05:32+00:00"
         },
         {
             "name": "php-di/php-di",
@@ -2153,20 +2153,20 @@
         },
         {
             "name": "psr/cache",
-            "version": "1.0.1",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/cache.git",
-                "reference": "d11b50ad223250cf17b86e38383413f5a6764bf8"
+                "reference": "aa5030cfa5405eccfdcb1083ce040c2cb8d253bf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/cache/zipball/d11b50ad223250cf17b86e38383413f5a6764bf8",
-                "reference": "d11b50ad223250cf17b86e38383413f5a6764bf8",
+                "url": "https://api.github.com/repos/php-fig/cache/zipball/aa5030cfa5405eccfdcb1083ce040c2cb8d253bf",
+                "reference": "aa5030cfa5405eccfdcb1083ce040c2cb8d253bf",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0"
+                "php": ">=8.0.0"
             },
             "type": "library",
             "extra": {
@@ -2186,7 +2186,7 @@
             "authors": [
                 {
                     "name": "PHP-FIG",
-                    "homepage": "http://www.php-fig.org/"
+                    "homepage": "https://www.php-fig.org/"
                 }
             ],
             "description": "Common interface for caching libraries",
@@ -2196,9 +2196,9 @@
                 "psr-6"
             ],
             "support": {
-                "source": "https://github.com/php-fig/cache/tree/master"
+                "source": "https://github.com/php-fig/cache/tree/3.0.0"
             },
-            "time": "2016-08-06T20:24:11+00:00"
+            "time": "2021-02-03T23:26:27+00:00"
         },
         {
             "name": "psr/container",
@@ -2577,16 +2577,16 @@
         },
         {
             "name": "react-inspector/metrics",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/reactphp-inspector/metrics.git",
-                "reference": "ce69b934b1dcaa6b284e33c6920058f308daddda"
+                "reference": "7b9a4ebd96b81b5b6d8df53385dc145438309e85"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/reactphp-inspector/metrics/zipball/ce69b934b1dcaa6b284e33c6920058f308daddda",
-                "reference": "ce69b934b1dcaa6b284e33c6920058f308daddda",
+                "url": "https://api.github.com/repos/reactphp-inspector/metrics/zipball/7b9a4ebd96b81b5b6d8df53385dc145438309e85",
+                "reference": "7b9a4ebd96b81b5b6d8df53385dc145438309e85",
                 "shasum": ""
             },
             "require": {
@@ -2595,8 +2595,7 @@
                 "react-inspector/metric": "^1.0",
                 "react/event-loop": "^1.1",
                 "reactivex/rxphp": "^2.0",
-                "thecodingmachine/safe": "^1.0",
-                "wyrihaximus/ticking-promise": "^1.6 || ^2.0"
+                "thecodingmachine/safe": "^1.0"
             },
             "require-dev": {
                 "wyrihaximus/async-test-utilities": "^2.0"
@@ -2645,7 +2644,7 @@
             "description": "☄ Metrics stream",
             "support": {
                 "issues": "https://github.com/reactphp-inspector/metrics/issues",
-                "source": "https://github.com/reactphp-inspector/metrics/tree/1.0.1"
+                "source": "https://github.com/reactphp-inspector/metrics/tree/1.0.2"
             },
             "funding": [
                 {
@@ -2653,7 +2652,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-01-10T13:25:48+00:00"
+            "time": "2021-08-15T11:54:04+00:00"
         },
         {
             "name": "react-inspector/stream",
@@ -2886,16 +2885,16 @@
         },
         {
             "name": "react-parallel/limited-pool",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/reactphp-parallel/limited-pool.git",
-                "reference": "552ab9f79aa5f6338bbdfe3b14b8fab9c221b34b"
+                "reference": "9901ba62368641eb867babf046bd6c7370a9abea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/reactphp-parallel/limited-pool/zipball/552ab9f79aa5f6338bbdfe3b14b8fab9c221b34b",
-                "reference": "552ab9f79aa5f6338bbdfe3b14b8fab9c221b34b",
+                "url": "https://api.github.com/repos/reactphp-parallel/limited-pool/zipball/9901ba62368641eb867babf046bd6c7370a9abea",
+                "reference": "9901ba62368641eb867babf046bd6c7370a9abea",
                 "shasum": ""
             },
             "require": {
@@ -2907,8 +2906,7 @@
                 "react-parallel/runtime": "^2.0",
                 "react/event-loop": "^1.1",
                 "react/promise": "^2.7",
-                "wyrihaximus/pool-info": "^1.0",
-                "wyrihaximus/ticking-promise": "^1.6 || ^2.0"
+                "wyrihaximus/pool-info": "^1.0"
             },
             "require-dev": {
                 "moneyphp/money": "^3.2 || ^3.2.1",
@@ -2937,7 +2935,7 @@
             "description": "🏔️ Limited pool for ext-parallel",
             "support": {
                 "issues": "https://github.com/reactphp-parallel/limited-pool/issues",
-                "source": "https://github.com/reactphp-parallel/limited-pool/tree/1.0.1"
+                "source": "https://github.com/reactphp-parallel/limited-pool/tree/1.0.2"
             },
             "funding": [
                 {
@@ -2945,7 +2943,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-01-10T10:50:17+00:00"
+            "time": "2021-08-15T12:15:15+00:00"
         },
         {
             "name": "react-parallel/object-proxy",
@@ -2953,12 +2951,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/reactphp-parallel/object-proxy.git",
-                "reference": "e015cbc0da130c1d2f71c1bf50d4f2082f853362"
+                "reference": "4608da7c71d4138f432e0688d6d03f675f71b8df"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/reactphp-parallel/object-proxy/zipball/e015cbc0da130c1d2f71c1bf50d4f2082f853362",
-                "reference": "e015cbc0da130c1d2f71c1bf50d4f2082f853362",
+                "url": "https://api.github.com/repos/reactphp-parallel/object-proxy/zipball/4608da7c71d4138f432e0688d6d03f675f71b8df",
+                "reference": "4608da7c71d4138f432e0688d6d03f675f71b8df",
                 "shasum": ""
             },
             "require": {
@@ -3055,7 +3053,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-04-29T09:30:14+00:00"
+            "time": "2021-08-15T08:45:27+00:00"
         },
         {
             "name": "react-parallel/object-proxy-attributes",
@@ -3726,26 +3724,26 @@
         },
         {
             "name": "react/stream",
-            "version": "v1.1.1",
+            "version": "v1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/reactphp/stream.git",
-                "reference": "7c02b510ee3f582c810aeccd3a197b9c2f52ff1a"
+                "reference": "7a423506ee1903e89f1e08ec5f0ed430ff784ae9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/reactphp/stream/zipball/7c02b510ee3f582c810aeccd3a197b9c2f52ff1a",
-                "reference": "7c02b510ee3f582c810aeccd3a197b9c2f52ff1a",
+                "url": "https://api.github.com/repos/reactphp/stream/zipball/7a423506ee1903e89f1e08ec5f0ed430ff784ae9",
+                "reference": "7a423506ee1903e89f1e08ec5f0ed430ff784ae9",
                 "shasum": ""
             },
             "require": {
                 "evenement/evenement": "^3.0 || ^2.0 || ^1.0",
                 "php": ">=5.3.8",
-                "react/event-loop": "^1.0 || ^0.5 || ^0.4 || ^0.3.5"
+                "react/event-loop": "^1.2"
             },
             "require-dev": {
                 "clue/stream-filter": "~1.2",
-                "phpunit/phpunit": "^7.0 || ^6.4 || ^5.7 || ^4.8.35"
+                "phpunit/phpunit": "^9.3 || ^5.7 || ^4.8.35"
             },
             "type": "library",
             "autoload": {
@@ -3756,6 +3754,28 @@
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christian Lück",
+                    "email": "christian@clue.engineering",
+                    "homepage": "https://clue.engineering/"
+                },
+                {
+                    "name": "Cees-Jan Kiewiet",
+                    "email": "reactphp@ceesjankiewiet.nl",
+                    "homepage": "https://wyrihaximus.net/"
+                },
+                {
+                    "name": "Jan Sorgalla",
+                    "email": "jsorgalla@gmail.com",
+                    "homepage": "https://sorgalla.com/"
+                },
+                {
+                    "name": "Chris Boden",
+                    "email": "cboden@gmail.com",
+                    "homepage": "https://cboden.dev/"
+                }
             ],
             "description": "Event-driven readable and writable streams for non-blocking I/O in ReactPHP",
             "keywords": [
@@ -3770,9 +3790,19 @@
             ],
             "support": {
                 "issues": "https://github.com/reactphp/stream/issues",
-                "source": "https://github.com/reactphp/stream/tree/v1.1.1"
+                "source": "https://github.com/reactphp/stream/tree/v1.2.0"
             },
-            "time": "2020-05-04T10:17:57+00:00"
+            "funding": [
+                {
+                    "url": "https://github.com/WyriHaximus",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/clue",
+                    "type": "github"
+                }
+            ],
+            "time": "2021-07-11T12:37:55+00:00"
         },
         {
             "name": "reactivex/rxphp",
@@ -5814,29 +5844,29 @@
         },
         {
             "name": "wyrihaximus/react-mutex",
-            "version": "2.0.0",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/WyriHaximus/reactphp-mutex.git",
-                "reference": "a7349a9d54b49568609ca714744255163f4a26ac"
+                "reference": "5e8a5c791f619aeac9448b90b54a446b6d32e222"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WyriHaximus/reactphp-mutex/zipball/a7349a9d54b49568609ca714744255163f4a26ac",
-                "reference": "a7349a9d54b49568609ca714744255163f4a26ac",
+                "url": "https://api.github.com/repos/WyriHaximus/reactphp-mutex/zipball/5e8a5c791f619aeac9448b90b54a446b6d32e222",
+                "reference": "5e8a5c791f619aeac9448b90b54a446b6d32e222",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.4",
                 "react/cache": "^1.1",
-                "react/event-loop": "^1.1",
+                "react/event-loop": "^1.2",
                 "react/promise": "^2.7",
                 "wyrihaximus/constants": "^1.6",
-                "wyrihaximus/react-mutex-contracts": "^1.0",
-                "wyrihaximus/ticking-promise": "^2.1"
+                "wyrihaximus/react-mutex-contracts": "^2",
+                "wyrihaximus/ticking-promise": "^3"
             },
             "require-dev": {
-                "wyrihaximus/react-mutex-test-utilities": "^1.0"
+                "wyrihaximus/react-mutex-test-utilities": "^2"
             },
             "type": "library",
             "autoload": {
@@ -5851,7 +5881,7 @@
             "description": "Mutex locking for ReactPHP projects",
             "support": {
                 "issues": "https://github.com/WyriHaximus/reactphp-mutex/issues",
-                "source": "https://github.com/WyriHaximus/reactphp-mutex/tree/2.0.0"
+                "source": "https://github.com/WyriHaximus/reactphp-mutex/tree/3.0.0"
             },
             "funding": [
                 {
@@ -5859,20 +5889,20 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-01-22T18:19:54+00:00"
+            "time": "2021-08-14T21:11:27+00:00"
         },
         {
             "name": "wyrihaximus/react-mutex-contracts",
-            "version": "1.1.0",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/WyriHaximus/reactphp-mutex-contracts.git",
-                "reference": "b5a5567128035b4c8ce924fcb36e56c72fca7775"
+                "reference": "f72ad4aff97a96ebb61fe8b0d7fd1500db630f28"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WyriHaximus/reactphp-mutex-contracts/zipball/b5a5567128035b4c8ce924fcb36e56c72fca7775",
-                "reference": "b5a5567128035b4c8ce924fcb36e56c72fca7775",
+                "url": "https://api.github.com/repos/WyriHaximus/reactphp-mutex-contracts/zipball/f72ad4aff97a96ebb61fe8b0d7fd1500db630f28",
+                "reference": "f72ad4aff97a96ebb61fe8b0d7fd1500db630f28",
                 "shasum": ""
             },
             "require": {
@@ -5895,7 +5925,7 @@
             "description": "Mutex locking contracts for ReactPHP projects",
             "support": {
                 "issues": "https://github.com/WyriHaximus/reactphp-mutex-contracts/issues",
-                "source": "https://github.com/WyriHaximus/reactphp-mutex-contracts/tree/1.1.0"
+                "source": "https://github.com/WyriHaximus/reactphp-mutex-contracts/tree/2.0.0"
             },
             "funding": [
                 {
@@ -5903,7 +5933,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-04-03T20:22:48+00:00"
+            "time": "2021-07-24T20:09:38+00:00"
         },
         {
             "name": "wyrihaximus/react-psr-3-stdio",
@@ -6055,25 +6085,25 @@
         },
         {
             "name": "wyrihaximus/ticking-promise",
-            "version": "2.1.0",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/WyriHaximus/TickingPromise.git",
-                "reference": "d3903d4bebe8e3c5b11464c0bb81802cdeeb3751"
+                "reference": "460d01371f42681e627194ed6c8b9eb3bed82a7a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WyriHaximus/TickingPromise/zipball/d3903d4bebe8e3c5b11464c0bb81802cdeeb3751",
-                "reference": "d3903d4bebe8e3c5b11464c0bb81802cdeeb3751",
+                "url": "https://api.github.com/repos/WyriHaximus/TickingPromise/zipball/460d01371f42681e627194ed6c8b9eb3bed82a7a",
+                "reference": "460d01371f42681e627194ed6c8b9eb3bed82a7a",
                 "shasum": ""
             },
             "require": {
                 "php": "^8 || ^7.4",
-                "react/event-loop": "^1.0",
+                "react/event-loop": "^1.2",
                 "react/promise": "^2.8"
             },
             "require-dev": {
-                "wyrihaximus/async-test-utilities": "^3"
+                "wyrihaximus/async-test-utilities": "^3.4.24"
             },
             "type": "library",
             "autoload": {
@@ -6098,7 +6128,7 @@
             "description": "Wrapping ticks into a promise",
             "support": {
                 "issues": "https://github.com/WyriHaximus/TickingPromise/issues",
-                "source": "https://github.com/WyriHaximus/TickingPromise/tree/2.1.0"
+                "source": "https://github.com/WyriHaximus/TickingPromise/tree/3.0.0"
             },
             "funding": [
                 {
@@ -6106,7 +6136,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-11-25T12:43:21+00:00"
+            "time": "2021-07-25T16:43:36+00:00"
         }
     ],
     "packages-dev": [
