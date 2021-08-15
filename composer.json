@@ -8,7 +8,7 @@
     "composer-plugin-api": "^2.0",
     "doctrine/annotations": "^1.13",
     "firehed/simplelogger": "^2.3",
-    "illuminate/collections": "^8.21",
+    "illuminate/collections": "^8.54",
     "mammatus/app": "dev-master",
     "mammatus/cron-attributes": "dev-main",
     "mammatus/cron-contracts": "dev-main",
