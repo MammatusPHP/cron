@@ -7,4 +7,3 @@ updates:
       labels:
           - "Dependencies 📦"
           - "PHP 🐘"
-      versioning-strategy: "increase"
