@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d42db684025549168ed1be4210a2a587",
+    "content-hash": "5c724c742a755e042e9e974be0b22e9b",
     "packages": [
         {
             "name": "api-clients/rx",
@@ -5764,22 +5764,22 @@
         },
         {
             "name": "wyrihaximus/react-cron",
-            "version": "2.1.2",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/WyriHaximus/reactphp-cron.git",
-                "reference": "1810f22c41857e09ad5dd54b367975dfa857cc4a"
+                "reference": "684323a60823ecadaa4c845b4b0e3c31a01ef7da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WyriHaximus/reactphp-cron/zipball/1810f22c41857e09ad5dd54b367975dfa857cc4a",
-                "reference": "1810f22c41857e09ad5dd54b367975dfa857cc4a",
+                "url": "https://api.github.com/repos/WyriHaximus/reactphp-cron/zipball/684323a60823ecadaa4c845b4b0e3c31a01ef7da",
+                "reference": "684323a60823ecadaa4c845b4b0e3c31a01ef7da",
                 "shasum": ""
             },
             "require": {
                 "dragonmantank/cron-expression": "^3.1",
-                "php": "^7.4",
-                "react/event-loop": "^1.1",
+                "php": "^8 || ^7.4",
+                "react/event-loop": "^1.2",
                 "react/promise": "^2.7",
                 "thecodingmachine/safe": "^1.3",
                 "wyrihaximus/constants": "^1.6",
@@ -5787,7 +5787,7 @@
                 "wyrihaximus/react-mutex-contracts": "^1.1"
             },
             "require-dev": {
-                "wyrihaximus/async-test-utilities": "^3.4.23"
+                "wyrihaximus/async-test-utilities": "^4.0"
             },
             "type": "library",
             "autoload": {
@@ -5802,7 +5802,7 @@
             "description": "Cronlike scheduler running inside a ReactPHP Event Loop",
             "support": {
                 "issues": "https://github.com/WyriHaximus/reactphp-cron/issues",
-                "source": "https://github.com/WyriHaximus/reactphp-cron/tree/2.1.2"
+                "source": "https://github.com/WyriHaximus/reactphp-cron/tree/3.0.0"
             },
             "funding": [
                 {
@@ -5810,7 +5810,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-04-04T21:01:42+00:00"
+            "time": "2021-08-10T09:01:00+00:00"
         },
         {
             "name": "wyrihaximus/react-mutex",
