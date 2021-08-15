@@ -30,7 +30,7 @@
     "wyrihaximus/ticking-promise": "^2.1"
   },
   "require-dev": {
-    "wyrihaximus/async-test-utilities": "^3"
+    "wyrihaximus/async-test-utilities": "^4"
   },
   "config": {
     "platform": {
