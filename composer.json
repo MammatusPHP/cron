@@ -22,7 +22,7 @@
     "wyrihaximus/list-classes-in-directory": "^1.3",
     "wyrihaximus/monolog-factory": "^1.0",
     "wyrihaximus/psr-3-callable-throwable-logger": "^2.1",
-    "wyrihaximus/react-cron": "^2.0",
+    "wyrihaximus/react-cron": "^3.0",
     "wyrihaximus/react-mutex": "^2.0",
     "wyrihaximus/react-mutex-contracts": "^1.0",
     "wyrihaximus/simple-twig": "^2.0",
