@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5c724c742a755e042e9e974be0b22e9b",
+    "content-hash": "f025bd0808deee3ecd3afe838c4656f3",
     "packages": [
         {
             "name": "api-clients/rx",
@@ -2988,7 +2988,7 @@
                 "wyrihaximus/json-throwable": "^4.1",
                 "wyrihaximus/metrics": "^1.0.2",
                 "wyrihaximus/metrics-lazy-registry": "^1.0",
-                "wyrihaximus/react-mutex-contracts": "^1.0",
+                "wyrihaximus/react-mutex-contracts": "^1.0 || ^2.0",
                 "wyrihaximus/string-get-in": "^1.0"
             },
             "require-dev": {
