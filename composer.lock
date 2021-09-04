@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a33110e7eef23292211fca2b0d62b3a9",
+    "content-hash": "9e1c9d15b5f052d434d059d3d9f444be",
     "packages": [
         {
             "name": "api-clients/rx",
@@ -1194,7 +1194,7 @@
                 "shasum": ""
             },
             "require": {
-                "php": "^7.4"
+                "php": "^8. || ^7.4"
             },
             "default-branch": true,
             "type": "library",
@@ -1229,7 +1229,7 @@
                 "shasum": ""
             },
             "require": {
-                "php": "^7.4",
+                "php": "^8 || ^7.4",
                 "react/promise": "^2.8"
             },
             "default-branch": true,
@@ -11320,6 +11320,7 @@
                     "type": "github"
                 }
             ],
+            "abandoned": true,
             "time": "2020-09-28T06:45:17+00:00"
         },
         {
@@ -13412,7 +13413,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.4",
+        "php": "^8 || ^7.4",
         "composer-plugin-api": "^2.0"
     },
     "platform-dev": [],
