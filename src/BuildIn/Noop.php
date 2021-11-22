@@ -6,7 +6,6 @@ namespace Mammatus\Cron\BuildIn;
 
 use Mammatus\Cron\Attributes\Cron;
 use Mammatus\Cron\Contracts\Action;
-use React\Promise\PromiseInterface;
 use function WyriHaximus\React\timedPromise;
 
 /**
@@ -14,8 +13,8 @@ use function WyriHaximus\React\timedPromise;
  */
 final class Noop implements Action
 {
-    public function perform(): PromiseInterface
+    public function perform(): void
     {
-        return timedPromise(3, true);
+        timedPromise(3, true);
     }
 }

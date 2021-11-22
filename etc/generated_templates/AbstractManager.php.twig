@@ -27,7 +27,7 @@ abstract class AbstractManager
                 'cron_{{ action.cron.name() }}_{{ action.class|replace({'\\': '_'}) }}',
                 {{ action.cron.ttl() }},
                 '{{ action.cron.schedule() }}',
-                fn (): PromiseInterface => $this->perform(\{{ action.class }}::class)
+                fn () => $this->perform(\{{ action.class }}::class)
             ),
             {% endfor %}
         );
@@ -35,5 +35,5 @@ abstract class AbstractManager
         return $this->cron;
     }
 
-    abstract protected function perform(string $class): PromiseInterface;
+    abstract protected function perform(string $class): void;
 }
