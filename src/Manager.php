@@ -12,6 +12,8 @@ use Psr\Log\LoggerInterface;
 use React\Promise\PromiseInterface;
 use WyriHaximus\Broadcast\Contracts\Listener;
 use WyriHaximus\React\Mutex\Contracts\MutexInterface;
+use function React\Async\async;
+use function React\Async\await;
 use function React\Promise\resolve;
 
 final class Manager extends AbstractManager implements Listener
@@ -41,15 +43,14 @@ final class Manager extends AbstractManager implements Listener
         $this->logger->debug('Stopped cron manager');
     }
 
-    protected function perform(string $class): PromiseInterface
+    protected function perform(string $class): void
     {
         $this->logger->debug('Starting job: ' . $class);
-        return $this->container->get($class)->perform()->then(function ($outcome) use ($class): PromiseInterface {
+        try {
+            $this->container->get($class)->perform();
             $this->logger->debug('Job finished: ' . $class);
-
-            return resolve($outcome);
-        }, function (\Throwable $outcome) use ($class): void {
-            $this->logger->debug('Job errored: ' . $class . ' ' . (string)$outcome);
-        });
+        } catch (\Throwable $throwable) {
+            $this->logger->debug('Job errored: ' . $class . ' ' . (string)$throwable);
+        }
     }
 }
