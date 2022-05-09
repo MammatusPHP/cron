@@ -4633,20 +4633,20 @@
         },
         {
             "name": "wyrihaximus/broadcast-contracts",
-            "version": "1.1.0",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/WyriHaximus/php-broadcast-contracts.git",
-                "reference": "e3913d3e57f60f6ea6ab20f83eb6fcbc2ab643f4"
+                "reference": "d352d5ef81714cb08d6cebc90037a152ecfb83dd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WyriHaximus/php-broadcast-contracts/zipball/e3913d3e57f60f6ea6ab20f83eb6fcbc2ab643f4",
-                "reference": "e3913d3e57f60f6ea6ab20f83eb6fcbc2ab643f4",
+                "url": "https://api.github.com/repos/WyriHaximus/php-broadcast-contracts/zipball/d352d5ef81714cb08d6cebc90037a152ecfb83dd",
+                "reference": "d352d5ef81714cb08d6cebc90037a152ecfb83dd",
                 "shasum": ""
             },
             "require": {
-                "php": "^8 || ^7.4"
+                "php": "^8.1"
             },
             "type": "library",
             "autoload": {
@@ -4661,7 +4661,7 @@
             "description": "✨ Contracts for wyrihaximus/broadcast",
             "support": {
                 "issues": "https://github.com/WyriHaximus/php-broadcast-contracts/issues",
-                "source": "https://github.com/WyriHaximus/php-broadcast-contracts/tree/1.1.0"
+                "source": "https://github.com/WyriHaximus/php-broadcast-contracts/tree/1.2.0"
             },
             "funding": [
                 {
@@ -4669,7 +4669,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-09-04T15:31:57+00:00"
+            "time": "2022-05-07T21:48:03+00:00"
         },
         {
             "name": "wyrihaximus/composer-update-bin-autoload-path",
@@ -12296,5 +12296,5 @@
     "platform-overrides": {
         "php": "8.1.1"
     },
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.3.0"
 }
