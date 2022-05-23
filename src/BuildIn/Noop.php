@@ -6,6 +6,7 @@ namespace Mammatus\Cron\BuildIn;
 
 use Mammatus\Cron\Attributes\Cron;
 use Mammatus\Cron\Contracts\Action;
+
 use function WyriHaximus\React\timedPromise;
 
 /**

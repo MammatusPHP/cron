@@ -1,0 +1,19 @@
+#!/usr/bin/php
+<?php declare(strict_types=1);
+
+use Mammatus\Cron\App;
+use Mammatus\ContainerFactory;
+
+(function() {
+    /**
+     * Require Composer's autoloader
+     */
+    require_once '%s';
+})();
+
+(static function(string $className) {
+    /**
+     * Create and run that one cron job
+     */
+    exit((static fn (string $className): int => ContainerFactory::create()->get(App::class)->run($className))($className));
+})($argv[1]);

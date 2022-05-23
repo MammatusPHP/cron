@@ -7,7 +7,7 @@
     "php": "^8.1",
     "composer-plugin-api": "^2.0",
     "doctrine/annotations": "^1.13",
-    "illuminate/collections": "^8.54",
+    "illuminate/collections": "^9 || ^8.54",
     "mammatus/app": "dev-master",
     "mammatus/cron-attributes": "dev-main",
     "mammatus/cron-contracts": "dev-main",
@@ -18,6 +18,7 @@
     "wyrihaximus/list-classes-in-directory": "^1.5",
     "wyrihaximus/monolog-factory": "^1.2",
     "wyrihaximus/psr-3-callable-throwable-logger": "^2.3",
+    "wyrihaximus/psr-3-context-logger": "^2.0",
     "wyrihaximus/react-cron": "dev-always-run-actions-in-a-fiber",
     "wyrihaximus/react-mutex-contracts": "^2.1",
     "wyrihaximus/simple-twig": "^2.1",
@@ -25,7 +26,7 @@
     "wyrihaximus/ticking-promise": "^3"
   },
   "require-dev": {
-    "wyrihaximus/async-test-utilities": "^4"
+    "mammatus/test-utilities": "dev-master"
   },
   "autoload": {
     "psr-4": {
@@ -37,6 +38,9 @@
       "Mammatus\\Tests\\Cron\\": "tests/"
     }
   },
+  "bin": [
+    "bin/mammatus-cron"
+  ],
   "config": {
     "allow-plugins": {
       "composer/package-versions-deprecated": true,
@@ -67,6 +71,9 @@
       ]
     },
     "wyrihaximus": {
+      "bin-autoload-path-update": [
+        "bin/mammatus-cron"
+      ],
       "broadcast": {
         "has-listeners": true
       }

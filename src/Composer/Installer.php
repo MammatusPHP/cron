@@ -29,7 +29,6 @@ use function count;
 use function dirname;
 use function explode;
 use function file_exists;
-use function get_class;
 use function is_array;
 use function is_string;
 use function microtime;
@@ -257,7 +256,7 @@ final class Installer implements PluginInterface, EventSubscriberInterface
         })->flatMap(static function (ReflectionClass $class) use ($annotationReader): array {
             $annotations = [];
             foreach ($annotationReader->getClassAnnotations(new \ReflectionClass($class->getName())) as $annotation) {
-                $annotations[get_class($annotation)] = $annotation;
+                $annotations[$annotation::class] = $annotation;
             }
 
             return [
