@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c0f3d140b206149bfb81a37f291fb03e",
+    "content-hash": "57237ea77c371f9fec047b79cc3fead4",
     "packages": [
         {
             "name": "bramus/ansi-php",
@@ -2582,27 +2582,26 @@
         },
         {
             "name": "react/async",
-            "version": "4.x-dev",
+            "version": "v4.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/reactphp/async.git",
-                "reference": "1986075aa6e055a75824f8a7228a2ace144950f4"
+                "reference": "2aa8d89057e1059f59666e4204100636249b7be0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/reactphp/async/zipball/1986075aa6e055a75824f8a7228a2ace144950f4",
-                "reference": "1986075aa6e055a75824f8a7228a2ace144950f4",
+                "url": "https://api.github.com/repos/reactphp/async/zipball/2aa8d89057e1059f59666e4204100636249b7be0",
+                "reference": "2aa8d89057e1059f59666e4204100636249b7be0",
                 "shasum": ""
             },
             "require": {
                 "php": ">=8.1",
                 "react/event-loop": "^1.2",
-                "react/promise": "^2.8 || ^1.2.1"
+                "react/promise": "^3.0 || ^2.8 || ^1.2.1"
             },
             "require-dev": {
                 "phpunit/phpunit": "^9.3"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "files": [
@@ -2638,14 +2637,14 @@
                     "homepage": "https://cboden.dev/"
                 }
             ],
-            "description": "Async utilities for ReactPHP",
+            "description": "Async utilities and fibers for ReactPHP",
             "keywords": [
                 "async",
                 "reactphp"
             ],
             "support": {
                 "issues": "https://github.com/reactphp/async/issues",
-                "source": "https://github.com/reactphp/async/tree/4.x"
+                "source": "https://github.com/reactphp/async/tree/v4.0.0"
             },
             "funding": [
                 {
@@ -2657,7 +2656,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-02-18T08:12:23+00:00"
+            "time": "2022-07-11T14:21:02+00:00"
         },
         {
             "name": "react/cache",
@@ -2737,16 +2736,16 @@
         },
         {
             "name": "react/event-loop",
-            "version": "v1.2.0",
+            "version": "v1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/reactphp/event-loop.git",
-                "reference": "be6dee480fc4692cec0504e65eb486e3be1aa6f2"
+                "reference": "187fb56f46d424afb6ec4ad089269c72eec2e137"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/reactphp/event-loop/zipball/be6dee480fc4692cec0504e65eb486e3be1aa6f2",
-                "reference": "be6dee480fc4692cec0504e65eb486e3be1aa6f2",
+                "url": "https://api.github.com/repos/reactphp/event-loop/zipball/187fb56f46d424afb6ec4ad089269c72eec2e137",
+                "reference": "187fb56f46d424afb6ec4ad089269c72eec2e137",
                 "shasum": ""
             },
             "require": {
@@ -2799,7 +2798,7 @@
             ],
             "support": {
                 "issues": "https://github.com/reactphp/event-loop/issues",
-                "source": "https://github.com/reactphp/event-loop/tree/v1.2.0"
+                "source": "https://github.com/reactphp/event-loop/tree/v1.3.0"
             },
             "funding": [
                 {
@@ -2811,7 +2810,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-07-11T12:31:24+00:00"
+            "time": "2022-03-17T11:10:22+00:00"
         },
         {
             "name": "react/promise",
@@ -12283,7 +12282,6 @@
         "mammatus/app": 20,
         "mammatus/cron-attributes": 20,
         "mammatus/cron-contracts": 20,
-        "react/async": 20,
         "wyrihaximus/react-cron": 20
     },
     "prefer-stable": false,
@@ -12296,5 +12294,5 @@
     "platform-overrides": {
         "php": "8.1.1"
     },
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.2.0"
 }
