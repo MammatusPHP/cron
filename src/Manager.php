@@ -9,12 +9,10 @@ use Mammatus\LifeCycleEvents\Initialize;
 use Mammatus\LifeCycleEvents\Shutdown;
 use Psr\Container\ContainerInterface;
 use Psr\Log\LoggerInterface;
-use React\Promise\PromiseInterface;
+use Throwable;
 use WyriHaximus\Broadcast\Contracts\Listener;
+use WyriHaximus\PSR3\ContextLogger\ContextLogger;
 use WyriHaximus\React\Mutex\Contracts\MutexInterface;
-use function React\Async\async;
-use function React\Async\await;
-use function React\Promise\resolve;
 
 final class Manager extends AbstractManager implements Listener
 {
@@ -24,9 +22,9 @@ final class Manager extends AbstractManager implements Listener
 
     public function __construct(LoggerInterface $logger, MutexInterface $mutex, ContainerInterface $container)
     {
-        $this->logger     = $logger;
-        $this->mutex      = $mutex;
-        $this->container      = $container;
+        $this->logger    = $logger;
+        $this->mutex     = $mutex;
+        $this->container = $container;
     }
 
     public function start(Initialize $event): void
@@ -45,12 +43,15 @@ final class Manager extends AbstractManager implements Listener
 
     protected function perform(string $class): void
     {
-        $this->logger->debug('Starting job: ' . $class);
+        $logger = new ContextLogger($this->logger, ['cronjob' => $class]);
         try {
-            $this->container->get($class)->perform();
-            $this->logger->debug('Job finished: ' . $class);
-        } catch (\Throwable $throwable) {
-            $this->logger->debug('Job errored: ' . $class . ' ' . (string)$throwable);
+            $logger->debug('Getting job');
+            $job = $this->container->get($class);
+            $logger->debug('Starting job');
+            $job->perform();
+            $logger->debug('Job finished');
+        } catch (Throwable $throwable) {
+            $logger->error('Job errored', ['exception' => $throwable]);
         }
     }
 }

@@ -2,3 +2,4 @@ build
 vendor
 .env
 /src/Generated/
+bin/mammatus-cron
