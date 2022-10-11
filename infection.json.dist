@@ -10,45 +10,136 @@
     },
     "mutators": {
         "@default": true,
-        "FunctionCallRemoval": {
+        "ArrayItemRemoval": {
             "ignore": [
-                "WyriHaximus\\TestUtilities\\TestCase::waitUntilTheNextSecond"
+                "Mammatus\\Cron\\Composer\\Installer",
+                "Mammatus\\Cron\\Generated\\AbstractManager"
             ]
         },
-        "MethodCallRemoval": {
+        "CastBool": {
             "ignore": [
-                "WyriHaximus\\TestUtilities\\TestCase::tearDown"
+                "Mammatus\\Cron\\Composer\\Installer",
+                "Mammatus\\Cron\\Generated\\AbstractManager"
+            ]
+        },
+        "Concat": {
+            "ignore": [
+                "Mammatus\\Cron\\Composer\\Installer",
+                "Mammatus\\Cron\\Generated\\AbstractManager"
+            ]
+        },
+        "ConcatOperandRemoval": {
+            "ignore": [
+                "Mammatus\\Cron\\Composer\\Installer",
+                "Mammatus\\Cron\\Generated\\AbstractManager"
             ]
         },
         "Continue_": {
             "ignore": [
-                "WyriHaximus\\TestUtilities\\TestCase::rmdir"
+                "Mammatus\\Cron\\Composer\\Installer",
+                "Mammatus\\Cron\\Generated\\AbstractManager"
             ]
         },
-        "TrueValue": {
+        "DecrementInteger": {
             "ignore": [
-                "WyriHaximus\\TestUtilities\\TestCase::provideTrueFalse"
+                "Mammatus\\Cron\\Composer\\Installer",
+                "Mammatus\\Cron\\Generated\\AbstractManager"
             ]
         },
-        "ArrayItemRemoval": false,
+        "Foreach_": {
+            "ignore": [
+                "Mammatus\\Cron\\Composer\\Installer",
+                "Mammatus\\Cron\\Generated\\AbstractManager"
+            ]
+        },
         "FalseValue": {
             "ignore": [
-                "WyriHaximus\\TestUtilities\\TestCase::provideTrueFalse"
+                "Mammatus\\Cron\\Composer\\Installer",
+                "Mammatus\\Cron\\Generated\\AbstractManager"
             ]
         },
-        "PublicVisibility": {
+        "FunctionCallRemoval": {
             "ignore": [
-                "WyriHaximus\\TestUtilities\\TestCase::provideTrueFalse"
+                "Mammatus\\Cron\\Composer\\Installer",
+                "Mammatus\\Cron\\Generated\\AbstractManager"
             ]
         },
-        "Identical": {
+        "GreaterThan": {
             "ignore": [
-                "WyriHaximus\\TestUtilities\\TestCase::getSysTempDir"
+                "Mammatus\\Cron\\Composer\\Installer",
+                "Mammatus\\Cron\\Generated\\AbstractManager"
             ]
         },
-        "UnwrapStrToUpper": {
+        "IncrementInteger": {
             "ignore": [
-                "WyriHaximus\\TestUtilities\\TestCase::getSysTempDir"
+                "Mammatus\\Cron\\Composer\\Installer",
+                "Mammatus\\Cron\\Generated\\AbstractManager"
+            ]
+        },
+        "InstanceOf_": {
+            "ignore": [
+                "Mammatus\\Cron\\Composer\\Installer",
+                "Mammatus\\Cron\\Generated\\AbstractManager"
+            ]
+        },
+        "LogicalNot": {
+            "ignore": [
+                "Mammatus\\Cron\\Composer\\Installer",
+                "Mammatus\\Cron\\Generated\\AbstractManager"
+            ]
+        },
+        "LogicalOr": {
+            "ignore": [
+                "Mammatus\\Cron\\Composer\\Installer",
+                "Mammatus\\Cron\\Generated\\AbstractManager"
+            ]
+        },
+        "MethodCallRemoval": {
+            "ignore": [
+                "Mammatus\\Cron\\Composer\\Installer",
+                "Mammatus\\Cron\\Generated\\AbstractManager"
+            ]
+        },
+        "Minus": {
+            "ignore": [
+                "Mammatus\\Cron\\Composer\\Installer",
+                "Mammatus\\Cron\\Generated\\AbstractManager"
+            ]
+        },
+        "NotIdentical": {
+            "ignore": [
+                "Mammatus\\Cron\\Composer\\Installer",
+                "Mammatus\\Cron\\Generated\\AbstractManager"
+            ]
+        },
+        "RoundingFamily": {
+            "ignore": [
+                "Mammatus\\Cron\\Composer\\Installer",
+                "Mammatus\\Cron\\Generated\\AbstractManager"
+            ]
+        },
+        "Throw_": {
+            "ignore": [
+                "Mammatus\\Cron\\Composer\\Installer",
+                "Mammatus\\Cron\\Generated\\AbstractManager"
+            ]
+        },
+        "UnwrapRtrim": {
+            "ignore": [
+                "Mammatus\\Cron\\Composer\\Installer",
+                "Mammatus\\Cron\\Generated\\AbstractManager"
+            ]
+        },
+        "UnwrapStrReplace": {
+            "ignore": [
+                "Mammatus\\Cron\\Composer\\Installer",
+                "Mammatus\\Cron\\Generated\\AbstractManager"
+            ]
+        },
+        "UnwrapSubstr": {
+            "ignore": [
+                "Mammatus\\Cron\\Composer\\Installer",
+                "Mammatus\\Cron\\Generated\\AbstractManager"
             ]
         }
     }

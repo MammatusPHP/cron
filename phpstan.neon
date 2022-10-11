@@ -3,6 +3,7 @@ parameters:
 		classesAllowedToBeExtended:
 			- Mammatus\LifeCycleEvents\Promise\AbstractPromise
 			- Mammatus\Tests\LifeCycleEvents\Promise\AbstractPromiseTest
+			- Mammatus\Cron\Generated\AbstractManager
 
 includes:
 	- vendor/wyrihaximus/async-test-utilities/rules.neon
