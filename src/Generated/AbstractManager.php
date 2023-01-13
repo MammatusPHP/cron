@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace Mammatus\Cron\Generated;
 
-use Psr\Container\ContainerInterface;
-use React\Promise\PromiseInterface;
-use WyriHaximus\React\Cron\Action;
+use Mammatus\Cron\BuildIn\Noop;
 use WyriHaximus\React\Cron;
+use WyriHaximus\React\Cron\Action;
 use WyriHaximus\React\Mutex\Contracts\MutexInterface;
 
 abstract class AbstractManager
@@ -22,14 +21,12 @@ abstract class AbstractManager
 
         $this->cron = Cron::createWithMutex(
             $mutex,
-            {% for action in actions %}
             new Action(
-                'cron:{{ action.class|replace({'\\': ':'}) }}:{{ action.cron.name() }}',
-                {{ action.cron.ttl() }},
-                '{{ action.cron.schedule() }}',
-                fn () => $this->perform(\{{ action.class }}::class)
+                'cron:Mammatus:Cron:BuildIn:Noop:noop',
+                120,
+                '* * * * *',
+                fn () => $this->perform(Noop::class)
             ),
-            {% endfor %}
         );
 
         return $this->cron;
