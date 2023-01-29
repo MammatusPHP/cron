@@ -19,7 +19,7 @@
     "wyrihaximus/monolog-factory": "^1.2",
     "wyrihaximus/psr-3-callable-throwable-logger": "^2.3",
     "wyrihaximus/psr-3-context-logger": "^2.0",
-    "wyrihaximus/react-cron": "dev-always-run-actions-in-a-fiber",
+    "wyrihaximus/react-cron": "^4",
     "wyrihaximus/react-mutex-contracts": "^2.1",
     "wyrihaximus/simple-twig": "^2.1",
     "wyrihaximus/string-get-in": "^1.1",

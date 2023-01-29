@@ -164,6 +164,9 @@ final class Installer implements PluginInterface, EventSubscriberInterface
         return $composerConfig->get('vendor-dir') . '/mammatus/cron';
     }
 
+    /**
+     * @return array<mixed>
+     */
     private static function findAllActions(Composer $composer, IOInterface $io): array
     {
         $annotationReader = new AnnotationReader();
@@ -266,11 +269,7 @@ final class Installer implements PluginInterface, EventSubscriberInterface
                 ],
             ];
         })->filter(static function (array $classNAnnotations): bool {
-            if (! array_key_exists(Cron::class, $classNAnnotations['annotations'])) {
-                return false;
-            }
-
-            return true;
+            return array_key_exists(Cron::class, $classNAnnotations['annotations']);
         })->flatMap(static function (array $classNAnnotations): array {
             return [
                 [
