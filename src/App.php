@@ -26,7 +26,7 @@ final class App
     {
         /**
          * @phpstan-ignore-next-line
-         *@psalm-suppress TooManyArguments
+         * @psalm-suppress TooManyArguments
          */
         return await(async(function (string $className): int {
             $logger = new ContextLogger($this->logger, ['cronjob' => $className]);
