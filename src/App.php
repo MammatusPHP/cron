@@ -24,10 +24,6 @@ final class App
 
     public function run(string $className): int
     {
-        /**
-         * @phpstan-ignore-next-line
-         * @psalm-suppress TooManyArguments
-         */
         return await(async(function (string $className): int {
             $logger = new ContextLogger($this->logger, ['cronjob' => $className]);
             try {

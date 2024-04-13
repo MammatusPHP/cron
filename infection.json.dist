@@ -6,8 +6,15 @@
         ]
     },
     "logs": {
-        "text": "infection-log.txt"
+        "text": "./var/infection.log",
+        "summary": "./var/infection-summary.log",
+        "json": "./var/infection.json",
+        "perMutator": "./var/infection-per-mutator.md",
+        "github": true
     },
+    "minMsi": 100,
+    "minCoveredMsi": 100,
+    "ignoreMsiWithNoMutations": true,
     "mutators": {
         "@default": true,
         "FunctionCallRemoval": {
@@ -51,5 +58,8 @@
                 "WyriHaximus\\TestUtilities\\TestCase::getSysTempDir"
             ]
         }
+    },
+    "phpUnit": {
+        "configDir": "./etc/qa/"
     }
 }

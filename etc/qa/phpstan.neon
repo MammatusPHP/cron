@@ -1,0 +1,11 @@
+parameters:
+	ignoreErrors:
+		- '#Method Mammatus\\Cron\\App::__construct\(\) has a parameter \$container with a type declaration of Psr\\Container\\ContainerInterface, but containers should not be injected.#'
+		- '#Method Mammatus\\Cron\\Manager::__construct\(\) has a parameter \$container with a type declaration of Psr\\Container\\ContainerInterface, but containers should not be injected.#'
+	ergebnis:
+		noExtends:
+			classesAllowedToBeExtended:
+				- Mammatus\Cron\Generated\AbstractManager
+
+includes:
+	- ../../vendor/wyrihaximus/async-test-utilities/rules.neon
