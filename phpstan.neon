@@ -1,8 +1,0 @@
-parameters:
-	ergebnis:
-		classesAllowedToBeExtended:
-			- Mammatus\LifeCycleEvents\Promise\AbstractPromise
-			- Mammatus\Tests\LifeCycleEvents\Promise\AbstractPromiseTest
-
-includes:
-	- vendor/wyrihaximus/async-test-utilities/rules.neon

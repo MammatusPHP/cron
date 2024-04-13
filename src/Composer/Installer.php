@@ -13,7 +13,6 @@ use Composer\Package\RootPackageInterface;
 use Composer\Plugin\PluginInterface;
 use Composer\Script\Event;
 use Composer\Script\ScriptEvents;
-use Doctrine\Common\Annotations\AnnotationReader;
 use Illuminate\Support\Collection;
 use Mammatus\Cron\Attributes\Cron;
 use Mammatus\Cron\Contracts\Action;
@@ -23,6 +22,7 @@ use Roave\BetterReflection\Reflector\DefaultReflector;
 use Roave\BetterReflection\Reflector\Exception\IdentifierNotFound;
 use Roave\BetterReflection\SourceLocator\Type\Composer\Factory\MakeLocatorForComposerJsonAndInstalledJson;
 use Roave\BetterReflection\SourceLocator\Type\Composer\Psr\Exception\InvalidPrefixMapping;
+use RuntimeException;
 
 use function array_key_exists;
 use function count;
@@ -32,20 +32,19 @@ use function file_exists;
 use function is_array;
 use function is_string;
 use function microtime;
-use function mkdir;
 use function round;
 use function rtrim;
 use function Safe\chmod;
 use function Safe\file_get_contents;
 use function Safe\file_put_contents;
-use function spl_autoload_register;
+use function Safe\mkdir;
+use function Safe\spl_autoload_register;
 use function sprintf;
 use function str_replace;
 use function strlen;
 use function strpos;
 use function substr;
 use function WyriHaximus\getIn;
-use function WyriHaximus\iteratorOrArrayToArray;
 use function WyriHaximus\listClassesInDirectories;
 use function WyriHaximus\Twig\render;
 
@@ -53,9 +52,7 @@ use const DIRECTORY_SEPARATOR;
 
 final class Installer implements PluginInterface, EventSubscriberInterface
 {
-    /**
-     * @return array<string, string>
-     */
+    /** @return array<string, string> */
     public static function getSubscribedEvents(): array
     {
         return [ScriptEvents::PRE_AUTOLOAD_DUMP => 'findActions'];
@@ -81,20 +78,26 @@ final class Installer implements PluginInterface, EventSubscriberInterface
      */
     public static function findActions(Event $event): void
     {
-        $start    = microtime(true);
-        $io       = $event->getIO();
-        $composer = $event->getComposer();
+        $start     = microtime(true);
+        $io        = $event->getIO();
+        $composer  = $event->getComposer();
+        $vendorDir = $composer->getConfig()->get('vendor-dir');
+        if (! is_string($vendorDir)) {
+            throw new RuntimeException('Vendor dir must be a string');
+        }
 
         // Composer is bugged and doesn't handle root package autoloading properly yet
         if (array_key_exists('psr-4', $composer->getPackage()->getAutoload())) {
             foreach ($composer->getPackage()->getAutoload()['psr-4'] as $ns => $p) {
-                $p = dirname($composer->getConfig()->get('vendor-dir')) . '/' . $p;
+                /** @phpstan-ignore-next-line */
+                $p = dirname($vendorDir) . '/' . $p;
                 spl_autoload_register(static function ($class) use ($ns, $p): void {
                     if (strpos($class, $ns) !== 0) {
                         return;
                     }
 
                     $fileName = $p . str_replace('\\', DIRECTORY_SEPARATOR, substr($class, strlen($ns))) . '.php';
+                    /** @phpstan-ignore-next-line */
                     if (! file_exists($fileName)) {
                         return;
                     }
@@ -104,8 +107,6 @@ final class Installer implements PluginInterface, EventSubscriberInterface
             }
         }
 
-        /** @psalm-suppress UnresolvableInclude */
-        require_once $composer->getConfig()->get('vendor-dir') . '/wyrihaximus/iterator-or-array-to-array/src/functions_include.php';
         /** @psalm-suppress UnresolvableInclude */
         require_once $composer->getConfig()->get('vendor-dir') . '/wyrihaximus/list-classes-in-directory/src/functions_include.php';
         /** @psalm-suppress UnresolvableInclude */
@@ -132,9 +133,9 @@ final class Installer implements PluginInterface, EventSubscriberInterface
 
         $classContents = render(
             file_get_contents(
-                self::locateRootPackageInstallPath($composer->getConfig(), $composer->getPackage()) . '/etc/generated_templates/AbstractManager.php.twig'
+                self::locateRootPackageInstallPath($composer->getConfig(), $composer->getPackage()) . '/etc/generated_templates/AbstractManager.php.twig',
             ),
-            ['actions' => $actions]
+            ['actions' => $actions],
         );
 
         $installPath = self::locateRootPackageInstallPath($composer->getConfig(), $composer->getPackage())
@@ -145,7 +146,7 @@ final class Installer implements PluginInterface, EventSubscriberInterface
 
         $io->write(sprintf(
             '<info>mammatus/cron:</info> Generated static abstract cron manager in %s second(s)',
-            round(microtime(true) - $start, 2)
+            round(microtime(true) - $start, 2),
         ));
     }
 
@@ -154,23 +155,28 @@ final class Installer implements PluginInterface, EventSubscriberInterface
      */
     private static function locateRootPackageInstallPath(
         Config $composerConfig,
-        RootPackageInterface $rootPackage
+        RootPackageInterface $rootPackage,
     ): string {
-        // You're on your own
-        if ($rootPackage->getName() === 'mammatus/cron') {
-            return dirname($composerConfig->get('vendor-dir'));
+        $vendorDir = $composerConfig->get('vendor-dir');
+        if (! is_string($vendorDir)) {
+            throw new RuntimeException('Vendor dir must be a string');
         }
 
-        return $composerConfig->get('vendor-dir') . '/mammatus/cron';
+        // You're on your own
+        if ($rootPackage->getName() === 'mammatus/cron') {
+            return dirname($vendorDir);
+        }
+
+        return $vendorDir . '/mammatus/cron';
     }
 
-    /**
-     * @return array<mixed>
-     */
+    /** @return array<mixed> */
     private static function findAllActions(Composer $composer, IOInterface $io): array
     {
-        $annotationReader = new AnnotationReader();
-        $vendorDir        = $composer->getConfig()->get('vendor-dir');
+        $vendorDir = $composer->getConfig()->get('vendor-dir');
+        if (! is_string($vendorDir)) {
+            throw new RuntimeException('Vendor dir must be a string');
+        }
 
         retry:
         try {
@@ -188,6 +194,7 @@ final class Installer implements PluginInterface, EventSubscriberInterface
         return (new Collection($packages))->filter(static function (PackageInterface $package): bool {
             return count($package->getAutoload()) > 0;
         })->filter(static function (PackageInterface $package): bool {
+            /** @phpstan-ignore-next-line */
             return getIn($package->getExtra(), 'mammatus.cron.has-actions', false);
         })->filter(static function (PackageInterface $package): bool {
             return array_key_exists('classmap', $package->getAutoload()) || array_key_exists('psr-4', $package->getAutoload());
@@ -227,11 +234,11 @@ final class Installer implements PluginInterface, EventSubscriberInterface
         })->map(static function (string $path): string {
             return rtrim($path, '/');
         })->filter(static function (string $path): bool {
+            /** @phpstan-ignore-next-line */
             return file_exists($path);
         })->flatMap(static function (string $path): array {
-            return iteratorOrArrayToArray(
-                listClassesInDirectories($path)
-            );
+            return [...listClassesInDirectories($path)];
+            /** @phpstan-ignore-next-line */
         })->flatMap(static function (string $class) use ($classReflector, $io): array {
             try {
                 /** @psalm-suppress PossiblyUndefinedVariable */
@@ -247,7 +254,7 @@ final class Installer implements PluginInterface, EventSubscriberInterface
                 $io->write(sprintf(
                     '<info>mammatus/cron:</info> Error while reflecting "<fg=cyan>%s</>": <fg=yellow>%s</>',
                     $class,
-                    $identifierNotFound->getMessage()
+                    $identifierNotFound->getMessage(),
                 ));
             }
 
@@ -256,25 +263,26 @@ final class Installer implements PluginInterface, EventSubscriberInterface
             return $class->isInstantiable();
         })->filter(static function (ReflectionClass $class): bool {
             return $class->implementsInterface(Action::class);
-        })->flatMap(static function (ReflectionClass $class) use ($annotationReader): array {
-            $annotations = [];
-            foreach ($annotationReader->getClassAnnotations(new \ReflectionClass($class->getName())) as $annotation) {
-                $annotations[$annotation::class] = $annotation;
+        })->flatMap(static function (ReflectionClass $class): array {
+            $attributes = [];
+            foreach ((new \ReflectionClass($class->getName()))->getAttributes() as $attributeReflection) {
+                $attribute                     = $attributeReflection->newInstance();
+                $attributes[$attribute::class] = $attribute;
             }
 
             return [
                 [
                     'class' => $class->getName(),
-                    'annotations' => $annotations,
+                    'attributes' => $attributes,
                 ],
             ];
-        })->filter(static function (array $classNAnnotations): bool {
-            return array_key_exists(Cron::class, $classNAnnotations['annotations']);
-        })->flatMap(static function (array $classNAnnotations): array {
+        })->filter(static function (array $classNattributes): bool {
+            return array_key_exists(Cron::class, $classNattributes['attributes']);
+        })->flatMap(static function (array $classNattributes): array {
             return [
                 [
-                    'class' => $classNAnnotations['class'],
-                    'cron' => $classNAnnotations['annotations'][Cron::class],
+                    'class' => $classNattributes['class'],
+                    'cron' => $classNattributes['attributes'][Cron::class],
                 ],
             ];
         })->toArray();
