@@ -24,7 +24,7 @@ abstract class AbstractManager
 
         $this->cron = Cron::createWithMutex(
             $mutex,
-            {% for action in actions %}
+{% for action in actions %}
             /** @see \{{ action.class }} */
             new Action(
                 'cron_{{ action.cron.name }}',
@@ -32,7 +32,7 @@ abstract class AbstractManager
                 '{{ action.cron.schedule }}',
                 fn () => $this->perform(\{{ action.class }}::class)
             ),
-            {% endfor %}
+{% endfor %}
         );
 
         return $this->cron;

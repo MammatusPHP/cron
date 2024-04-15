@@ -131,21 +131,34 @@ final class Installer implements PluginInterface, EventSubscriberInterface
 
         $io->write(sprintf('<info>mammatus/cron:</info> Found %s action(s)', count($actions)));
 
-        $classContents = render(
+        $classContentsManager = render(
             file_get_contents(
                 self::locateRootPackageInstallPath($composer->getConfig(), $composer->getPackage()) . '/etc/generated_templates/AbstractManager.php.twig',
             ),
             ['actions' => $actions],
         );
 
-        $installPath = self::locateRootPackageInstallPath($composer->getConfig(), $composer->getPackage())
+        $installPathManager = self::locateRootPackageInstallPath($composer->getConfig(), $composer->getPackage())
             . '/src/Generated/AbstractManager.php';
 
-        file_put_contents($installPath, $classContents);
-        chmod($installPath, 0664);
+        file_put_contents($installPathManager, $classContentsManager);
+        chmod($installPathManager, 0664);
+
+        $classContentsList = render(
+            file_get_contents(
+                self::locateRootPackageInstallPath($composer->getConfig(), $composer->getPackage()) . '/etc/generated_templates/AbstractList_.php.twig',
+            ),
+            ['actions' => $actions],
+        );
+
+        $installPathList = self::locateRootPackageInstallPath($composer->getConfig(), $composer->getPackage())
+            . '/src/Generated/AbstractList_.php';
+
+        file_put_contents($installPathList, $classContentsList);
+        chmod($installPathList, 0664);
 
         $io->write(sprintf(
-            '<info>mammatus/cron:</info> Generated static abstract cron manager in %s second(s)',
+            '<info>mammatus/cron:</info> Generated static abstract cron manager and cron list in %s second(s)',
             round(microtime(true) - $start, 2),
         ));
     }

@@ -39,7 +39,8 @@
     }
   },
   "bin": [
-    "bin/mammatus-cron"
+    "bin/mammatus-cron",
+    "bin/mammatus-cron-list"
   ],
   "config": {
     "allow-plugins": {
@@ -70,9 +71,6 @@
       ]
     },
     "wyrihaximus": {
-      "bin-autoload-path-update": [
-        "bin/mammatus-cron"
-      ],
       "broadcast": {
         "has-listeners": true
       }

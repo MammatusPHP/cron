@@ -1,7 +1,7 @@
 #!/usr/bin/php
 <?php declare(strict_types=1);
 
-use Mammatus\Cron\App;
+use Mammatus\Cron\List_;
 use Mammatus\ContainerFactory;
 
 (function(string $_composer_autoload_path) {
@@ -11,9 +11,9 @@ use Mammatus\ContainerFactory;
     require_once $_composer_autoload_path;
 })($_composer_autoload_path);
 
-(static function(string $className) {
+(static function(string $type) {
     /**
      * Create and run that one cron job
      */
-    exit((static fn (string $className): int => ContainerFactory::create()->get(App::class)->run($className))($className));
+    exit((static fn (string $type): int => ContainerFactory::create()->get(List_::class)->list($type))($type));
 })($argv[1]);
