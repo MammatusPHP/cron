@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a041d3d187f6d1c64a340c097e85d936",
+    "content-hash": "8d33a0a95f5ab04e3ecff10ff8674db8",
     "packages": [
         {
             "name": "bramus/ansi-php",
@@ -253,16 +253,16 @@
         },
         {
             "name": "composer/composer",
-            "version": "2.7.2",
+            "version": "2.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/composer.git",
-                "reference": "b826edb791571ab1eaf281eb1bd6e181a1192adc"
+                "reference": "e49be96f3bccd183c9ff1313686c06cf898ba4be"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/composer/zipball/b826edb791571ab1eaf281eb1bd6e181a1192adc",
-                "reference": "b826edb791571ab1eaf281eb1bd6e181a1192adc",
+                "url": "https://api.github.com/repos/composer/composer/zipball/e49be96f3bccd183c9ff1313686c06cf898ba4be",
+                "reference": "e49be96f3bccd183c9ff1313686c06cf898ba4be",
                 "shasum": ""
             },
             "require": {
@@ -347,7 +347,7 @@
                 "irc": "ircs://irc.libera.chat:6697/composer",
                 "issues": "https://github.com/composer/composer/issues",
                 "security": "https://github.com/composer/composer/security/policy",
-                "source": "https://github.com/composer/composer/tree/2.7.2"
+                "source": "https://github.com/composer/composer/tree/2.7.3"
             },
             "funding": [
                 {
@@ -363,7 +363,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-03-11T16:12:18+00:00"
+            "time": "2024-04-19T19:40:57+00:00"
         },
         {
             "name": "composer/metadata-minifier",
@@ -955,7 +955,7 @@
         },
         {
             "name": "illuminate/collections",
-            "version": "v10.48.7",
+            "version": "v10.48.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/collections.git",
@@ -1010,7 +1010,7 @@
         },
         {
             "name": "illuminate/conditionable",
-            "version": "v10.48.7",
+            "version": "v10.48.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/conditionable.git",
@@ -1056,7 +1056,7 @@
         },
         {
             "name": "illuminate/contracts",
-            "version": "v10.48.7",
+            "version": "v10.48.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
@@ -1104,7 +1104,7 @@
         },
         {
             "name": "illuminate/macroable",
-            "version": "v10.48.7",
+            "version": "v10.48.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/macroable.git",
@@ -1632,6 +1632,106 @@
                 }
             ],
             "time": "2024-03-23T14:37:16+00:00"
+        },
+        {
+            "name": "mammatus/kubernetes-attributes",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/MammatusPHP/kubernetes-attributes.git",
+                "reference": "e4470b218b8a4333b13944bbad2a3722b8f4e897"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/MammatusPHP/kubernetes-attributes/zipball/e4470b218b8a4333b13944bbad2a3722b8f4e897",
+                "reference": "e4470b218b8a4333b13944bbad2a3722b8f4e897",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.2"
+            },
+            "require-dev": {
+                "wyrihaximus/async-test-utilities": "^8.0.1"
+            },
+            "default-branch": true,
+            "type": "library",
+            "extra": {
+                "php-di-definitions": {
+                    "di": [
+                        "etc/di/*.php"
+                    ]
+                },
+                "wyrihaximus": {
+                    "broadcast": {
+                        "has-listeners": true
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Mammatus\\Kubernetes\\Attributes\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "⏱️ Cron manager",
+            "support": {
+                "issues": "https://github.com/MammatusPHP/kubernetes-attributes/issues",
+                "source": "https://github.com/MammatusPHP/kubernetes-attributes/tree/main"
+            },
+            "time": "2024-04-20T12:19:17+00:00"
+        },
+        {
+            "name": "mammatus/kubernetes-events",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/MammatusPHP/kubernetes-events.git",
+                "reference": "e1bea8365ddbe6b27ad7c7ea2ecec4a037857160"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/MammatusPHP/kubernetes-events/zipball/e1bea8365ddbe6b27ad7c7ea2ecec4a037857160",
+                "reference": "e1bea8365ddbe6b27ad7c7ea2ecec4a037857160",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.2"
+            },
+            "require-dev": {
+                "wyrihaximus/async-test-utilities": "^8.0.1"
+            },
+            "default-branch": true,
+            "type": "library",
+            "extra": {
+                "php-di-definitions": {
+                    "di": [
+                        "etc/di/*.php"
+                    ]
+                },
+                "wyrihaximus": {
+                    "broadcast": {
+                        "has-listeners": true
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Mammatus\\Kubernetes\\Events\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "⏱️ Cron manager",
+            "support": {
+                "issues": "https://github.com/MammatusPHP/kubernetes-events/issues",
+                "source": "https://github.com/MammatusPHP/kubernetes-events/tree/main"
+            },
+            "time": "2024-04-20T08:45:32+00:00"
         },
         {
             "name": "mammatus/life-cycle-events",
@@ -4274,30 +4374,37 @@
         },
         {
             "name": "twig/twig",
-            "version": "v3.8.0",
+            "version": "v3.9.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "9d15f0ac07f44dc4217883ec6ae02fd555c6f71d"
+                "reference": "a842d75fed59cdbcbd3a3ad7fb9eb768fc350d58"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/9d15f0ac07f44dc4217883ec6ae02fd555c6f71d",
-                "reference": "9d15f0ac07f44dc4217883ec6ae02fd555c6f71d",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/a842d75fed59cdbcbd3a3ad7fb9eb768fc350d58",
+                "reference": "a842d75fed59cdbcbd3a3ad7fb9eb768fc350d58",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.2.5",
+                "symfony/deprecation-contracts": "^2.5|^3",
                 "symfony/polyfill-ctype": "^1.8",
                 "symfony/polyfill-mbstring": "^1.3",
                 "symfony/polyfill-php80": "^1.22"
             },
             "require-dev": {
                 "psr/container": "^1.0|^2.0",
-                "symfony/phpunit-bridge": "^5.4.9|^6.3|^7.0"
+                "symfony/phpunit-bridge": "^5.4.9|^6.4|^7.0"
             },
             "type": "library",
             "autoload": {
+                "files": [
+                    "src/Resources/core.php",
+                    "src/Resources/debug.php",
+                    "src/Resources/escaper.php",
+                    "src/Resources/string_loader.php"
+                ],
                 "psr-4": {
                     "Twig\\": "src/"
                 }
@@ -4330,7 +4437,7 @@
             ],
             "support": {
                 "issues": "https://github.com/twigphp/Twig/issues",
-                "source": "https://github.com/twigphp/Twig/tree/v3.8.0"
+                "source": "https://github.com/twigphp/Twig/tree/v3.9.3"
             },
             "funding": [
                 {
@@ -4342,7 +4449,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-11-21T18:54:41+00:00"
+            "time": "2024-04-18T11:59:33+00:00"
         },
         {
             "name": "webmozart/assert",
@@ -5546,16 +5653,16 @@
         },
         {
             "name": "amphp/byte-stream",
-            "version": "v1.8.1",
+            "version": "v1.8.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/amphp/byte-stream.git",
-                "reference": "acbd8002b3536485c997c4e019206b3f10ca15bd"
+                "reference": "4f0e968ba3798a423730f567b1b50d3441c16ddc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/amphp/byte-stream/zipball/acbd8002b3536485c997c4e019206b3f10ca15bd",
-                "reference": "acbd8002b3536485c997c4e019206b3f10ca15bd",
+                "url": "https://api.github.com/repos/amphp/byte-stream/zipball/4f0e968ba3798a423730f567b1b50d3441c16ddc",
+                "reference": "4f0e968ba3798a423730f567b1b50d3441c16ddc",
                 "shasum": ""
             },
             "require": {
@@ -5571,11 +5678,6 @@
                 "psalm/phar": "^3.11.4"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.x-dev"
-                }
-            },
             "autoload": {
                 "files": [
                     "lib/functions.php"
@@ -5599,7 +5701,7 @@
                 }
             ],
             "description": "A stream abstraction to make working with non-blocking I/O simple.",
-            "homepage": "http://amphp.org/byte-stream",
+            "homepage": "https://amphp.org/byte-stream",
             "keywords": [
                 "amp",
                 "amphp",
@@ -5609,9 +5711,8 @@
                 "stream"
             ],
             "support": {
-                "irc": "irc://irc.freenode.org/amphp",
                 "issues": "https://github.com/amphp/byte-stream/issues",
-                "source": "https://github.com/amphp/byte-stream/tree/v1.8.1"
+                "source": "https://github.com/amphp/byte-stream/tree/v1.8.2"
             },
             "funding": [
                 {
@@ -5619,7 +5720,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-03-30T17:13:30+00:00"
+            "time": "2024-04-13T18:00:56+00:00"
         },
         {
             "name": "azjezz/psl",
@@ -9831,16 +9932,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.10.66",
+            "version": "1.10.67",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "94779c987e4ebd620025d9e5fdd23323903950bd"
+                "reference": "16ddbe776f10da6a95ebd25de7c1dbed397dc493"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/94779c987e4ebd620025d9e5fdd23323903950bd",
-                "reference": "94779c987e4ebd620025d9e5fdd23323903950bd",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/16ddbe776f10da6a95ebd25de7c1dbed397dc493",
+                "reference": "16ddbe776f10da6a95ebd25de7c1dbed397dc493",
                 "shasum": ""
             },
             "require": {
@@ -9883,13 +9984,9 @@
                 {
                     "url": "https://github.com/phpstan",
                     "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/phpstan/phpstan",
-                    "type": "tidelift"
                 }
             ],
-            "time": "2024-03-28T16:17:31+00:00"
+            "time": "2024-04-16T07:22:02+00:00"
         },
         {
             "name": "phpstan/phpstan-deprecation-rules",
@@ -10043,16 +10140,16 @@
         },
         {
             "name": "phpstan/phpstan-strict-rules",
-            "version": "1.5.3",
+            "version": "1.5.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan-strict-rules.git",
-                "reference": "568210bd301f94a0d4b1e5a0808c374c1b9cf11b"
+                "reference": "2e193a07651a6f4be3baa44ddb21d822681f5918"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan-strict-rules/zipball/568210bd301f94a0d4b1e5a0808c374c1b9cf11b",
-                "reference": "568210bd301f94a0d4b1e5a0808c374c1b9cf11b",
+                "url": "https://api.github.com/repos/phpstan/phpstan-strict-rules/zipball/2e193a07651a6f4be3baa44ddb21d822681f5918",
+                "reference": "2e193a07651a6f4be3baa44ddb21d822681f5918",
                 "shasum": ""
             },
             "require": {
@@ -10086,9 +10183,9 @@
             "description": "Extra strict and opinionated rules for PHPStan",
             "support": {
                 "issues": "https://github.com/phpstan/phpstan-strict-rules/issues",
-                "source": "https://github.com/phpstan/phpstan-strict-rules/tree/1.5.3"
+                "source": "https://github.com/phpstan/phpstan-strict-rules/tree/1.5.5"
             },
-            "time": "2024-04-06T07:43:25+00:00"
+            "time": "2024-04-19T15:12:26+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -10413,16 +10510,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "10.5.17",
+            "version": "10.5.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "c1f736a473d21957ead7e94fcc029f571895abf5"
+                "reference": "c726f0de022368f6ed103e452a765d3304a996a4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/c1f736a473d21957ead7e94fcc029f571895abf5",
-                "reference": "c1f736a473d21957ead7e94fcc029f571895abf5",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/c726f0de022368f6ed103e452a765d3304a996a4",
+                "reference": "c726f0de022368f6ed103e452a765d3304a996a4",
                 "shasum": ""
             },
             "require": {
@@ -10494,7 +10591,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
                 "security": "https://github.com/sebastianbergmann/phpunit/security/policy",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/10.5.17"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/10.5.19"
             },
             "funding": [
                 {
@@ -10510,7 +10607,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-04-05T04:39:01+00:00"
+            "time": "2024-04-17T14:06:18+00:00"
         },
         {
             "name": "psalm/plugin-mockery",
@@ -13725,27 +13822,27 @@
         },
         {
             "name": "wyrihaximus/async-test-utilities",
-            "version": "8.0.1",
+            "version": "8.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/WyriHaximus/php-async-test-utilities.git",
-                "reference": "4b7171adc07d60fa3b35a479e5c1ed4929c4f884"
+                "reference": "d5e4daf87531b126998b2a42a2e072f2cbc3d276"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WyriHaximus/php-async-test-utilities/zipball/4b7171adc07d60fa3b35a479e5c1ed4929c4f884",
-                "reference": "4b7171adc07d60fa3b35a479e5c1ed4929c4f884",
+                "url": "https://api.github.com/repos/WyriHaximus/php-async-test-utilities/zipball/d5e4daf87531b126998b2a42a2e072f2cbc3d276",
+                "reference": "d5e4daf87531b126998b2a42a2e072f2cbc3d276",
                 "shasum": ""
             },
             "require": {
                 "php": "^8.2",
-                "phpunit/phpunit": "^10.5.17",
+                "phpunit/phpunit": "^10.5.19",
                 "react/async": "^4.2.0",
                 "react/event-loop": "^1.5.0",
                 "react/promise": "^3.1",
                 "wyrihaximus/phpstan-react": "^1",
                 "wyrihaximus/react-phpunit-run-tests-in-fiber": "^2.0.0",
-                "wyrihaximus/test-utilities": "^6.0.3"
+                "wyrihaximus/test-utilities": "^6.0.5"
             },
             "conflict": {
                 "composer/compoer": "<2.6.0"
@@ -13772,7 +13869,7 @@
             "description": "Test utilities for api-clients packages",
             "support": {
                 "issues": "https://github.com/WyriHaximus/php-async-test-utilities/issues",
-                "source": "https://github.com/WyriHaximus/php-async-test-utilities/tree/8.0.1"
+                "source": "https://github.com/WyriHaximus/php-async-test-utilities/tree/8.0.3"
             },
             "funding": [
                 {
@@ -13780,7 +13877,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-04-08T20:51:22+00:00"
+            "time": "2024-04-17T21:59:07+00:00"
         },
         {
             "name": "wyrihaximus/coding-standard",
@@ -13973,16 +14070,16 @@
         },
         {
             "name": "wyrihaximus/test-utilities",
-            "version": "6.0.3",
+            "version": "6.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/WyriHaximus/php-test-utilities.git",
-                "reference": "012eebc008cfcf1b697ac06529c1ad47181070ba"
+                "reference": "634f233e3ec530f43b288986b02f6b5388d7a460"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WyriHaximus/php-test-utilities/zipball/012eebc008cfcf1b697ac06529c1ad47181070ba",
-                "reference": "012eebc008cfcf1b697ac06529c1ad47181070ba",
+                "url": "https://api.github.com/repos/WyriHaximus/php-test-utilities/zipball/634f233e3ec530f43b288986b02f6b5388d7a460",
+                "reference": "634f233e3ec530f43b288986b02f6b5388d7a460",
                 "shasum": ""
             },
             "require": {
@@ -14000,8 +14097,8 @@
                 "php-parallel-lint/php-console-highlighter": "^1.0",
                 "php-parallel-lint/php-parallel-lint": "^1.4.0",
                 "php-standard-library/psalm-plugin": "^1.1.5 || ^2.2.1",
-                "phpstan/phpstan": "^1.10.66",
-                "phpunit/phpunit": "^10.5.17",
+                "phpstan/phpstan": "^1.10.67",
+                "phpunit/phpunit": "^10.5.19",
                 "psalm/plugin-mockery": "^1.1",
                 "psalm/plugin-phpunit": "^0.19.0",
                 "roave/backward-compatibility-check": "^8.6.0",
@@ -14035,7 +14132,7 @@
             "description": "🛠️ Test utilities for api-clients packages",
             "support": {
                 "issues": "https://github.com/WyriHaximus/php-test-utilities/issues",
-                "source": "https://github.com/WyriHaximus/php-test-utilities/tree/6.0.3"
+                "source": "https://github.com/WyriHaximus/php-test-utilities/tree/6.0.5"
             },
             "funding": [
                 {
@@ -14043,13 +14140,15 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-04-08T20:16:04+00:00"
+            "time": "2024-04-17T21:39:18+00:00"
         }
     ],
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "mammatus/app": 20
+        "mammatus/app": 20,
+        "mammatus/kubernetes-attributes": 20,
+        "mammatus/kubernetes-events": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
