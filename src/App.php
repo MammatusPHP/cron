@@ -39,7 +39,7 @@ final class App
 
                 return 0;
             } catch (Throwable $throwable) { /** @phpstan-ignore-line */
-                $logger->error('Job errored', ['exception' => $throwable]);
+                $logger->error('Job errored: ' . $throwable->getMessage(), ['exception' => $throwable]);
 
                 return 1;
             }

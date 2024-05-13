@@ -12,6 +12,12 @@ final class CronJobsValues extends AbstractList_ implements Listener
 {
     public function values(Values $values): void
     {
-        $values->registry->add('cronjobs', array_filter([...$this->crons()], static fn (array $action): bool => $action['type'] === 'kubernetes'));
+        $values->registry->add(
+            'cronjobs',
+            array_filter(
+                [...$this->crons()],
+                static fn (array $action): bool => $action['type'] === 'kubernetes',
+            ),
+        );
     }
 }
