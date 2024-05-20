@@ -14,6 +14,7 @@
     "mammatus/kubernetes-events": "dev-main",
     "mammatus/life-cycle-events": "^2",
     "psr/container": "^1.1.2",
+    "psr/event-dispatcher": "^1.0",
     "psr/log": "^2",
     "react/async": "^4.2",
     "roave/better-reflection": "^6.26",

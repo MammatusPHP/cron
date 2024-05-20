@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace Mammatus\Cron;
 
 use Mammatus\Cron\Contracts\Action;
+use Mammatus\LifeCycleEvents\Shutdown;
 use Psr\Container\ContainerInterface;
+use Psr\EventDispatcher\EventDispatcherInterface;
 use Psr\Log\LoggerInterface;
 use RuntimeException;
 use Throwable;
@@ -18,6 +20,7 @@ final class App
 {
     public function __construct(
         private readonly ContainerInterface $container,
+        private readonly EventDispatcherInterface $eventDispatcher,
         private readonly LoggerInterface $logger,
     ) {
     }
@@ -37,9 +40,13 @@ final class App
                 $job->perform();
                 $logger->debug('Job finished');
 
+                $this->eventDispatcher->dispatch(new Shutdown());
+
                 return 0;
             } catch (Throwable $throwable) { /** @phpstan-ignore-line */
                 $logger->error('Job errored: ' . $throwable->getMessage(), ['exception' => $throwable]);
+
+                $this->eventDispatcher->dispatch(new Shutdown());
 
                 return 1;
             }
