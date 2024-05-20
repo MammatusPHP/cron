@@ -5,6 +5,7 @@ parameters:
 	ergebnis:
 		noExtends:
 			classesAllowedToBeExtended:
+				- Mammatus\Cron\Generated\AbstractList_
 				- Mammatus\Cron\Generated\AbstractManager
 
 includes:

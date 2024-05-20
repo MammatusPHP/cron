@@ -8,6 +8,8 @@ use Mammatus\Cron\Generated\AbstractList_;
 use Mammatus\Kubernetes\Events\Helm\Values;
 use WyriHaximus\Broadcast\Contracts\Listener;
 
+use function array_filter;
+
 final class CronJobsValues extends AbstractList_ implements Listener
 {
     public function values(Values $values): void

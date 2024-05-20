@@ -6,8 +6,10 @@ namespace Mammatus\Tests\Cron;
 
 use Mammatus\Cron\App;
 use Mammatus\Cron\BuildIn\Noop;
+use Mammatus\LifeCycleEvents\Shutdown;
 use Mockery;
 use Psr\Container\ContainerInterface;
+use Psr\EventDispatcher\EventDispatcherInterface;
 use Psr\Log\LoggerInterface;
 use RuntimeException;
 use WyriHaximus\AsyncTestUtilities\AsyncTestCase;
@@ -22,12 +24,15 @@ final class AppTest extends AsyncTestCase
         $container = Mockery::mock(ContainerInterface::class);
         $container->expects('get')->with(Noop::class)->once()->andReturn(new Noop());
 
+        $eventDispatcher = Mockery::mock(EventDispatcherInterface::class);
+        $eventDispatcher->expects('dispatch')->withArgs(static fn (Shutdown $event): bool => true)->once();
+
         $logger = Mockery::mock(LoggerInterface::class);
         $logger->expects('log')->with('debug', 'Getting job', ['cronjob' => Noop::class])->once();
         $logger->expects('log')->with('debug', 'Starting job', ['cronjob' => Noop::class])->once();
         $logger->expects('log')->with('debug', 'Job finished', ['cronjob' => Noop::class])->once();
 
-        $exitCode = (new App($container, $logger))->run(Noop::class);
+        $exitCode = (new App($container, $eventDispatcher, $logger))->run(Noop::class);
 
         self::assertSame(0, $exitCode);
     }
@@ -39,12 +44,15 @@ final class AppTest extends AsyncTestCase
         $container = Mockery::mock(ContainerInterface::class);
         $container->expects('get')->with(Angry::class)->once()->andReturn(new Angry($exception));
 
+        $eventDispatcher = Mockery::mock(EventDispatcherInterface::class);
+        $eventDispatcher->expects('dispatch')->withArgs(static fn (Shutdown $event): bool => true)->once();
+
         $logger = Mockery::mock(LoggerInterface::class);
         $logger->expects('log')->with('debug', 'Getting job', ['cronjob' => Angry::class])->once();
         $logger->expects('log')->with('debug', 'Starting job', ['cronjob' => Angry::class])->once();
-        $logger->expects('log')->with('error', 'Job errored', ['cronjob' => Angry::class, 'exception' => $exception])->once();
+        $logger->expects('log')->with('error', 'Job errored: ' . $exception->getMessage(), ['cronjob' => Angry::class, 'exception' => $exception])->once();
 
-        $exitCode = (new App($container, $logger))->run(Angry::class);
+        $exitCode = (new App($container, $eventDispatcher, $logger))->run(Angry::class);
 
         self::assertSame(1, $exitCode);
     }
@@ -55,13 +63,16 @@ final class AppTest extends AsyncTestCase
         $container = Mockery::mock(ContainerInterface::class);
         $container->expects('get')->with(Sad::class)->once()->andReturn(new Sad());
 
+        $eventDispatcher = Mockery::mock(EventDispatcherInterface::class);
+        $eventDispatcher->expects('dispatch')->withArgs(static fn (Shutdown $event): bool => true)->once();
+
         $logger = Mockery::mock(LoggerInterface::class);
         $logger->expects('log')->with('debug', 'Getting job', ['cronjob' => Sad::class])->once();
         $logger->expects('log')->withArgs(static function (string $type, string $message, array $context): bool {
             return array_key_exists('cronjob', $context) && $context['cronjob'] === Sad::class && array_key_exists('exception', $context) && $context['exception'] instanceof RuntimeException && $context['exception']->getMessage() === 'Given job is not an action';
         })->once();
 
-        $exitCode = (new App($container, $logger))->run(Sad::class);
+        $exitCode = (new App($container, $eventDispatcher, $logger))->run(Sad::class);
 
         self::assertSame(1, $exitCode);
     }
