@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace Mammatus\Cron\Generated;
 
-use WyriHaximus\React\Cron;
-use WyriHaximus\React\Cron\Action;
-use WyriHaximus\React\Mutex\Contracts\MutexInterface;
+use Mammatus\Cron\Action;
 
 // phpcs:disable
 /**
@@ -21,16 +19,17 @@ abstract class AbstractList_
     {
 {% for action in actions %}
         /** @see \{{ action.class }} */
-        yield [
+        yield new Action(
 {% if action.split_out == true %}
-            'type' => 'kubernetes',
+            type: 'kubernetes',
 {% else %}
-            'type' => 'internal',
+            type: 'internal',
 {% endif %}
-            'name' => '{{ action.cron.name }}',
-            'schedule' => '{{ action.cron.schedule }}',
-            'class' => \{{ action.class }}::class,
-        ];
+            name: '{{ action.cron.name }}',
+            schedule: '{{ action.cron.schedule }}',
+            class: \{{ action.class }}::class,
+            addOns: \json_decode('{{ action.cron.addOns|json_encode()|raw }}', true),
+        );
 {% endfor %}
     }
 }

@@ -11,6 +11,7 @@
     "mammatus/cron-attributes": "^1",
     "mammatus/cron-contracts": "^1.0.1",
     "mammatus/kubernetes-attributes": "dev-main",
+    "mammatus/kubernetes-contracts": "dev-main",
     "mammatus/kubernetes-events": "dev-main",
     "mammatus/life-cycle-events": "^2",
     "psr/container": "^1.1.2",
