@@ -17,45 +17,24 @@
     "ignoreMsiWithNoMutations": true,
     "mutators": {
         "@default": true,
+        "DecrementInteger": {
+            "ignore": [
+                "Mammatus\\Cron\\Generated\\AbstractManager::cron"
+            ]
+        },
+        "IncrementInteger": {
+            "ignore": [
+                "Mammatus\\Cron\\Generated\\AbstractManager::cron"
+            ]
+        },
         "FunctionCallRemoval": {
             "ignore": [
-                "WyriHaximus\\TestUtilities\\TestCase::waitUntilTheNextSecond"
+                "Mammatus\\Cron\\BuildIn\\Noop::perform"
             ]
         },
-        "MethodCallRemoval": {
+        "LogicalNot": {
             "ignore": [
-                "WyriHaximus\\TestUtilities\\TestCase::tearDown"
-            ]
-        },
-        "Continue_": {
-            "ignore": [
-                "WyriHaximus\\TestUtilities\\TestCase::rmdir"
-            ]
-        },
-        "TrueValue": {
-            "ignore": [
-                "WyriHaximus\\TestUtilities\\TestCase::provideTrueFalse"
-            ]
-        },
-        "ArrayItemRemoval": false,
-        "FalseValue": {
-            "ignore": [
-                "WyriHaximus\\TestUtilities\\TestCase::provideTrueFalse"
-            ]
-        },
-        "PublicVisibility": {
-            "ignore": [
-                "WyriHaximus\\TestUtilities\\TestCase::provideTrueFalse"
-            ]
-        },
-        "Identical": {
-            "ignore": [
-                "WyriHaximus\\TestUtilities\\TestCase::getSysTempDir"
-            ]
-        },
-        "UnwrapStrToUpper": {
-            "ignore": [
-                "WyriHaximus\\TestUtilities\\TestCase::getSysTempDir"
+                "Mammatus\\Cron\\Composer\\Collector::collect"
             ]
         }
     },
