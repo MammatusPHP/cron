@@ -18,8 +18,11 @@ use WyriHaximus\React\Mutex\Contracts\MutexInterface;
 
 final class Manager extends AbstractManager implements Listener
 {
-    public function __construct(private LoggerInterface $logger, private MutexInterface $mutex, private ContainerInterface $container)
-    {
+    public function __construct(
+        private readonly LoggerInterface $logger,
+        private readonly MutexInterface $mutex,
+        private readonly ContainerInterface $container,
+    ) {
     }
 
     public function start(Initialize $event): void
