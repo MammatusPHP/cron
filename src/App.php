@@ -9,6 +9,7 @@ use Mammatus\LifeCycleEvents\Shutdown;
 use Psr\Container\ContainerInterface;
 use Psr\EventDispatcher\EventDispatcherInterface;
 use Psr\Log\LoggerInterface;
+use React\EventLoop\Loop;
 use RuntimeException;
 use Throwable;
 use WyriHaximus\PSR3\ContextLogger\ContextLogger;
@@ -27,7 +28,8 @@ final class App
 
     public function run(string $className): int
     {
-        return await(async(function (string $className): int {
+        $exitCode = 2;
+        async(function (string $className): int {
             $logger = new ContextLogger($this->logger, ['cronjob' => $className]);
             try {
                 $logger->debug('Getting job');
@@ -50,6 +52,12 @@ final class App
 
                 return 1;
             }
-        })($className));
+        })($className)->then(static function (int $resultingExitCode)use (&$exitCode): void {
+            $exitCode = $resultingExitCode;
+        });
+
+        Loop::run();
+
+        return $exitCode;
     }
 }
