@@ -6,6 +6,7 @@ namespace Mammatus\Tests\Cron;
 
 use Mammatus\Cron\App;
 use Mammatus\Cron\BuildIn\Noop;
+use Mammatus\ExitCode;
 use Mammatus\LifeCycleEvents\Shutdown;
 use Mockery;
 use Psr\Container\ContainerInterface;
@@ -32,9 +33,9 @@ final class AppTest extends AsyncTestCase
         $logger->expects('log')->with('debug', 'Starting job', ['cronjob' => Noop::class])->once();
         $logger->expects('log')->with('debug', 'Job finished', ['cronjob' => Noop::class])->once();
 
-        $exitCode = (new App($container, $eventDispatcher, $logger))->run(Noop::class);
+        $exitCode = (new App($container, $eventDispatcher, $logger))->boot(new App\Cron(Noop::class));
 
-        self::assertSame(0, $exitCode);
+        self::assertSame(ExitCode::Success, $exitCode);
     }
 
     /** @test */
@@ -52,9 +53,9 @@ final class AppTest extends AsyncTestCase
         $logger->expects('log')->with('debug', 'Starting job', ['cronjob' => Angry::class])->once();
         $logger->expects('log')->with('error', 'Job errored: ' . $exception->getMessage(), ['cronjob' => Angry::class, 'exception' => $exception])->once();
 
-        $exitCode = (new App($container, $eventDispatcher, $logger))->run(Angry::class);
+        $exitCode = (new App($container, $eventDispatcher, $logger))->boot(new App\Cron(Angry::class));
 
-        self::assertSame(1, $exitCode);
+        self::assertSame(ExitCode::Failure, $exitCode);
     }
 
     /** @test */
@@ -72,8 +73,8 @@ final class AppTest extends AsyncTestCase
             return array_key_exists('cronjob', $context) && $context['cronjob'] === Sad::class && array_key_exists('exception', $context) && $context['exception'] instanceof RuntimeException && $context['exception']->getMessage() === 'Given job is not an action';
         })->once();
 
-        $exitCode = (new App($container, $eventDispatcher, $logger))->run(Sad::class);
+        $exitCode = (new App($container, $eventDispatcher, $logger))->boot(new App\Cron(Sad::class));
 
-        self::assertSame(1, $exitCode);
+        self::assertSame(ExitCode::Failure, $exitCode);
     }
 }
