@@ -14,7 +14,7 @@
     "mammatus/kubernetes-contracts": "^1",
     "mammatus/kubernetes-events": "^1",
     "mammatus/life-cycle-events": "^2",
-    "psr/container": "^1.1.2",
+    "psr/container": "^1.1.2 || ^2",
     "psr/event-dispatcher": "^1.0",
     "psr/log": "^2",
     "react/async": "^4.2",
@@ -82,11 +82,13 @@
   "scripts": {
     "post-install-cmd": [
       "composer normalize",
-      "composer update --lock --no-scripts"
+      "composer update --lock --no-scripts",
+      "make cs-fix"
     ],
     "post-update-cmd": [
       "composer normalize",
-      "composer update --lock --no-scripts"
+      "composer update --lock --no-scripts",
+      "make cs-fix"
     ],
     "pre-autoload-dump": [
       "Mammatus\\Cron\\Composer\\Installer::findActions"
