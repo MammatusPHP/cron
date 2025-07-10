@@ -17,6 +17,8 @@
     "ignoreMsiWithNoMutations": true,
     "mutators": {
         "@default": true,
+        "ArrayItemRemoval": false,
+        "Foreach_": false,
         "DecrementInteger": {
             "ignore": [
                 "Mammatus\\Cron\\Generated\\AbstractManager::cron"

@@ -33,6 +33,8 @@ final class AppTest extends AsyncTestCase
         $logger->expects('log')->with('debug', 'Getting job', ['cronjob' => Noop::class])->once();
         $logger->expects('log')->with('debug', 'Starting job', ['cronjob' => Noop::class])->once();
         $logger->expects('log')->with('debug', 'Job finished', ['cronjob' => Noop::class])->once();
+        $logger->expects('log')->with('info', 'Dispatching shutdown event', ['cronjob' => Noop::class])->once();
+        $logger->expects('log')->with('debug', 'Shutdown event dispatched', ['cronjob' => Noop::class])->once();
 
         $exitCode = (new App($container, $eventDispatcher, $logger))->boot(new App\Cron(Noop::class));
 

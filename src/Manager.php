@@ -6,7 +6,7 @@ namespace Mammatus\Cron;
 
 use Mammatus\Cron\Contracts\Action;
 use Mammatus\Cron\Generated\AbstractManager;
-use Mammatus\LifeCycleEvents\Initialize;
+use Mammatus\LifeCycleEvents\Boot;
 use Mammatus\LifeCycleEvents\Shutdown;
 use Psr\Container\ContainerInterface;
 use Psr\Log\LoggerInterface;
@@ -25,7 +25,7 @@ final class Manager extends AbstractManager implements Listener
     ) {
     }
 
-    public function start(Initialize $event): void
+    public function start(Boot $event): void
     {
         $this->logger->debug('Starting cron manager');
         $this->cron($this->mutex);

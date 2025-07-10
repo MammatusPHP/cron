@@ -41,7 +41,9 @@ final readonly class App implements Bootable
             $job->perform();
             $logger->debug('Job finished');
 
+            $logger->info('Dispatching shutdown event');
             $this->eventDispatcher->dispatch(new Shutdown());
+            $logger->debug('Shutdown event dispatched');
 
             return ExitCode::Success;
         } catch (Throwable $throwable) {
