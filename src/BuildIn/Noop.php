@@ -12,7 +12,7 @@ use function WyriHaximus\React\timedPromise;
 #[Cron(name: 'no.op', ttl: 120, schedule: '* * * * *')]
 final class Noop implements Action
 {
-    private const INTERVAL = 3;
+    private const int INTERVAL = 3;
 
     public function perform(): void
     {

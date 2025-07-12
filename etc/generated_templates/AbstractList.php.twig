@@ -31,7 +31,7 @@ abstract readonly class AbstractList
             name: '{{ action.cron.name }}',
             schedule: '{{ action.cron.schedule }}',
             class: \{{ action.class }}::class,
-            addOns: \json_decode('{{ action.cron.addOns|json_encode()|raw }}', true), /** @phpstan-ignore-line */
+            addOns: \json_decode('{{ action.cron.addOns|json_encode()|raw }}', true),
         );
 {% endfor %}
     }

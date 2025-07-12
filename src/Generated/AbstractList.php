@@ -26,7 +26,7 @@ abstract readonly class AbstractList
             name: 'no.op',
             schedule: '* * * * *',
             class: \Mammatus\Cron\BuildIn\Noop::class,
-            addOns: \json_decode('[]', true), /** @phpstan-ignore-line */
+            addOns: \json_decode('[]', true),
         );
     }
 }

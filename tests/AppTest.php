@@ -9,6 +9,7 @@ use Mammatus\Cron\BuildIn\Noop;
 use Mammatus\ExitCode;
 use Mammatus\LifeCycleEvents\Shutdown;
 use Mockery;
+use PHPUnit\Framework\Attributes\Test;
 use Psr\Container\ContainerInterface;
 use Psr\EventDispatcher\EventDispatcherInterface;
 use Psr\Log\LoggerInterface;
@@ -19,7 +20,7 @@ use function array_key_exists;
 
 final class AppTest extends AsyncTestCase
 {
-    /** @test */
+    #[Test]
     public function runHappy(): void
     {
         $container = Mockery::mock(ContainerInterface::class);
@@ -38,7 +39,7 @@ final class AppTest extends AsyncTestCase
         self::assertSame(ExitCode::Success, $exitCode);
     }
 
-    /** @test */
+    #[Test]
     public function runAngry(): void
     {
         $exception = new RuntimeException('Ik ben boos!');
@@ -51,14 +52,14 @@ final class AppTest extends AsyncTestCase
         $logger = Mockery::mock(LoggerInterface::class);
         $logger->expects('log')->with('debug', 'Getting job', ['cronjob' => Angry::class])->once();
         $logger->expects('log')->with('debug', 'Starting job', ['cronjob' => Angry::class])->once();
-        $logger->expects('log')->with('error', 'Job errored: ' . $exception->getMessage(), ['cronjob' => Angry::class, 'exception' => $exception])->once();
+        $logger->expects('log')->with('error', 'Job errored: {exception_message}', ['cronjob' => Angry::class, 'exception' => $exception, 'exception_message' => $exception->getMessage()])->once();
 
         $exitCode = (new App($container, $eventDispatcher, $logger))->boot(new App\Cron(Angry::class));
 
         self::assertSame(ExitCode::Failure, $exitCode);
     }
 
-    /** @test */
+    #[Test]
     public function runNonAction(): void
     {
         $container = Mockery::mock(ContainerInterface::class);
@@ -69,9 +70,7 @@ final class AppTest extends AsyncTestCase
 
         $logger = Mockery::mock(LoggerInterface::class);
         $logger->expects('log')->with('debug', 'Getting job', ['cronjob' => Sad::class])->once();
-        $logger->expects('log')->withArgs(static function (string $type, string $message, array $context): bool {
-            return array_key_exists('cronjob', $context) && $context['cronjob'] === Sad::class && array_key_exists('exception', $context) && $context['exception'] instanceof RuntimeException && $context['exception']->getMessage() === 'Given job is not an action';
-        })->once();
+        $logger->expects('log')->withArgs(static fn (string $type, string $message, array $context): bool => array_key_exists('cronjob', $context) && $context['cronjob'] === Sad::class && array_key_exists('exception', $context) && $context['exception'] instanceof RuntimeException && $context['exception']->getMessage() === 'Given job is not an action')->once();
 
         $exitCode = (new App($container, $eventDispatcher, $logger))->boot(new App\Cron(Sad::class));
 

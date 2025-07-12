@@ -18,12 +18,12 @@ use Throwable;
 use WyriHaximus\PSR3\ContextLogger\ContextLogger;
 
 /** @implements Bootable<Cron> */
-final class App implements Bootable
+final readonly class App implements Bootable
 {
     public function __construct(
-        private readonly ContainerInterface $container,
-        private readonly EventDispatcherInterface $eventDispatcher,
-        private readonly LoggerInterface $logger,
+        private ContainerInterface $container,
+        private EventDispatcherInterface $eventDispatcher,
+        private LoggerInterface $logger,
     ) {
     }
 
@@ -44,8 +44,8 @@ final class App implements Bootable
             $this->eventDispatcher->dispatch(new Shutdown());
 
             return ExitCode::Success;
-        } catch (Throwable $throwable) { /** @phpstan-ignore-line */
-            $logger->error('Job errored: ' . $throwable->getMessage(), ['exception' => $throwable]);
+        } catch (Throwable $throwable) {
+            $logger->error('Job errored: {exception_message}', ['exception' => $throwable, 'exception_message' => $throwable->getMessage()]);
 
             $this->eventDispatcher->dispatch(new Shutdown());
 

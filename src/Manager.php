@@ -52,7 +52,7 @@ final class Manager extends AbstractManager implements Listener
             $logger->debug('Starting job');
             $job->perform();
             $logger->debug('Job finished');
-        } catch (Throwable $throwable) { /** @phpstan-ignore-line */
+        } catch (Throwable $throwable) {
             $logger->error('Job errored', ['exception' => $throwable]);
         }
     }

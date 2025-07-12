@@ -9,9 +9,11 @@ use Mammatus\Cron\Manager;
 use Mammatus\LifeCycleEvents\Initialize;
 use Mammatus\LifeCycleEvents\Shutdown;
 use Mockery;
+use PHPUnit\Framework\Attributes\Test;
 use Psr\Container\ContainerInterface;
 use Psr\Log\LoggerInterface;
 use RuntimeException;
+use Throwable;
 use WyriHaximus\AsyncTestUtilities\AsyncTestCase;
 use WyriHaximus\React\Mutex\Memory;
 use WyriHaximus\React\PHPUnit\TimeOut;
@@ -23,7 +25,7 @@ use function React\Promise\Timer\sleep;
 #[TimeOut(133)]
 final class ManagerTest extends AsyncTestCase
 {
-    /** @test */
+    #[Test]
     public function runHappy(): void
     {
         $logger = Mockery::mock(LoggerInterface::class);
@@ -50,7 +52,7 @@ final class ManagerTest extends AsyncTestCase
         $manager->stop(new Shutdown());
     }
 
-    /** @test */
+    #[Test]
     public function runAngry(): void
     {
         $exception = new RuntimeException('Ik ben boos!');
@@ -79,7 +81,7 @@ final class ManagerTest extends AsyncTestCase
         $manager->stop(new Shutdown());
     }
 
-    /** @test */
+    #[Test]
     public function notAnAction(): void
     {
         $logger = Mockery::mock(LoggerInterface::class);
@@ -99,7 +101,7 @@ final class ManagerTest extends AsyncTestCase
                 return false;
             }
 
-            return array_key_exists('exception', $context) && $context['exception']->getMessage() === 'Given job is not an action';
+            return array_key_exists('exception', $context) && $context['exception'] instanceof Throwable && $context['exception']->getMessage() === 'Given job is not an action';
         })->atLeast()->once();
         $logger->expects('debug')->with('Stopping cron manager')->once();
         $logger->expects('debug')->with('Stopped cron manager')->once();
