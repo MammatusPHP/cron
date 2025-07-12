@@ -58,7 +58,7 @@ final class Plugin implements GenerativePlugin
         );
         $installPathManager   = $rootPath . '/src/Generated/AbstractManager.php';
         file_put_contents($installPathManager, $classContentsManager); /** @phpstan-ignore-line */
-        chmod($installPathManager, 0664); /** @phpstan-ignore-line */
+        chmod($installPathManager, 0664);
 
         $classContentsList = SimpleTwig::render(
             file_get_contents( /** @phpstan-ignore-line */
@@ -68,6 +68,6 @@ final class Plugin implements GenerativePlugin
         );
         $installPathList   = $rootPath . '/src/Generated/AbstractList.php';
         file_put_contents($installPathList, $classContentsList); /** @phpstan-ignore-line */
-        chmod($installPathList, 0664); /** @phpstan-ignore-line */
+        chmod($installPathList, 0664);
     }
 }

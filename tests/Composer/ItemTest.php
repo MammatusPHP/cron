@@ -7,13 +7,14 @@ namespace Mammatus\Tests\Cron\Composer;
 use Mammatus\Cron\Attributes\Cron;
 use Mammatus\Cron\Composer\Item;
 use Mammatus\Kubernetes\Attributes\Resources;
+use PHPUnit\Framework\Attributes\Test;
 use WyriHaximus\TestUtilities\TestCase;
 
 use function Safe\json_encode;
 
 final class ItemTest extends TestCase
 {
-    /** @test */
+    #[Test]
     public function json(): void
     {
         $item = new Item(

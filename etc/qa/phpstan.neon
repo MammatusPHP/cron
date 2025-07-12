@@ -11,6 +11,3 @@ parameters:
 				- Composer\IO\NullIO
 				- Mammatus\Cron\Generated\AbstractList
 				- Mammatus\Cron\Generated\AbstractManager
-
-includes:
-	- ../../vendor/wyrihaximus/async-test-utilities/rules.neon
