@@ -6,7 +6,7 @@ namespace Mammatus\Tests\Cron;
 
 use Mammatus\Cron\BuildIn\Noop;
 use Mammatus\Cron\Manager;
-use Mammatus\LifeCycleEvents\Initialize;
+use Mammatus\LifeCycleEvents\Boot;
 use Mammatus\LifeCycleEvents\Shutdown;
 use Mockery;
 use PHPUnit\Framework\Attributes\Test;
@@ -47,7 +47,7 @@ final class ManagerTest extends AsyncTestCase
             $mutex,
             $container,
         );
-        $manager->start(new Initialize());
+        $manager->start(new Boot());
         await(sleep(99));
         $manager->stop(new Shutdown());
     }
@@ -76,7 +76,7 @@ final class ManagerTest extends AsyncTestCase
             $mutex,
             $container,
         );
-        $manager->start(new Initialize());
+        $manager->start(new Boot());
         await(sleep(99));
         $manager->stop(new Shutdown());
     }
@@ -116,7 +116,7 @@ final class ManagerTest extends AsyncTestCase
             $mutex,
             $container,
         );
-        $manager->start(new Initialize());
+        $manager->start(new Boot());
         await(sleep(99));
         $manager->stop(new Shutdown());
     }
