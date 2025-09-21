@@ -23,7 +23,7 @@
     "wyrihaximus/broadcast-contracts": "^1.3",
     "wyrihaximus/generative-composer-plugin-tooling": "^1",
     "wyrihaximus/monolog-factory": "^2",
-    "wyrihaximus/psr-3-context-logger": "^2.0",
+    "wyrihaximus/psr-3-context-logger": "^2.0 || ^3.0",
     "wyrihaximus/react-cron": "^5",
     "wyrihaximus/react-mutex-contracts": "^2.3",
     "wyrihaximus/simple-twig": "^2.2.1",
