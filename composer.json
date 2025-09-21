@@ -17,7 +17,7 @@
     "mammatus/life-cycle-events": "^2",
     "psr/container": "^1.1.2 || ^2",
     "psr/event-dispatcher": "^1.0",
-    "psr/log": "^2",
+    "psr/log": "^2 || ^3",
     "react/async": "^4.2",
     "roave/better-reflection": "^6.26",
     "wyrihaximus/broadcast-contracts": "^1.3",
