@@ -9,7 +9,7 @@ use Mammatus\Cron\Contracts\Action;
 
 use function WyriHaximus\React\timedPromise;
 
-#[Cron(name: 'no.op', ttl: 120, schedule: '* * * * *')]
+#[Cron(name: 'no.op', ttl: 69, schedule: '* * * * *')]
 final class Noop implements Action
 {
     private const int INTERVAL = 3;

@@ -82,7 +82,10 @@ final class InstallerTest extends TestCase
                 return stream_get_contents($this->output->getStream());
             }
 
-            /** @inheritDoc */
+            /**
+             * @inheritDoc
+             * @phpstan-ignore typeCoverage.paramTypeCoverage
+             */
             public function write($messages, bool $newline = true, int $verbosity = self::NORMAL): void
             {
                 $this->output->write($messages, $newline, $verbosity & StreamOutput::OUTPUT_RAW);
@@ -130,9 +133,9 @@ final class InstallerTest extends TestCase
         $output = $io->output();
 
         self::assertStringContainsString('<info>mammatus/cron:</info> Locating actions', $output);
-        self::assertStringContainsString('<info>mammatus/cron:</info> Generated static abstract queue manager and queue list in ', $output);
+        self::assertStringContainsString('<info>mammatus/cron:</info> Generated static abstract action manager and action list in ', $output);
         self::assertStringContainsString('<info>mammatus/cron:</info> Found 1 action(s)', $output);
-//        self::assertStringContainsString('<error>mammatus/cron:</error> An error occurred:  Cannot reflect "<fg=cyan>Mammatus\Cron\Manager</>": <fg=yellow>Roave\BetterReflection\Reflection\ReflectionClass "Mammatus\Cron\Generated\AbstractManager" could not be found in the located source</>', $output);
+        //self::assertStringContainsString('<error>mammatus/cron:</error> An error occurred:  Cannot reflect "<fg=cyan>Mammatus\Cron\Manager</>": <fg=yellow>Roave\BetterReflection\Reflection\ReflectionClass "Mammatus\Cron\Generated\AbstractManager" could not be found in the located source</>', $output);
 
         self::assertFileExists($fileNameList);
         self::assertFileExists($fileNameManager);
