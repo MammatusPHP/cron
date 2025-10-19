@@ -30,7 +30,7 @@ final class Plugin implements GenerativePlugin
             LogStages::Init => 'Locating actions',
             LogStages::Error => 'An error occurred: %s',
             LogStages::Collected => 'Found %d action(s)',
-            LogStages::Completion => 'Generated static abstract queue manager and queue list in %s second(s)',
+            LogStages::Completion => 'Generated static abstract action manager and action list in %s second(s)',
         };
     }
 

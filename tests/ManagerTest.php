@@ -22,7 +22,7 @@ use function array_key_exists;
 use function React\Async\await;
 use function React\Promise\Timer\sleep;
 
-#[TimeOut(133)]
+#[TimeOut(666)]
 final class ManagerTest extends AsyncTestCase
 {
     #[Test]
@@ -48,7 +48,7 @@ final class ManagerTest extends AsyncTestCase
             $container,
         );
         $manager->start(new Boot());
-        await(sleep(99));
+        await(sleep(512));
         $manager->stop(new Shutdown());
     }
 

@@ -19,7 +19,7 @@ final class Collector implements ItemCollector
     {
         /** @var array<Cron> $attributes */
         $attributes = [];
-        foreach ((new \ReflectionClass($class->getName()))->getAttributes() as $attributeReflection) {
+        foreach (new \ReflectionClass($class->getName())->getAttributes() as $attributeReflection) {
             $attribute                     = $attributeReflection->newInstance();
             $attributes[$attribute::class] = $attribute;
         }

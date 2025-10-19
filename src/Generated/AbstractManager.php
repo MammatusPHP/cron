@@ -28,7 +28,7 @@ abstract class AbstractManager
             /** @see \Mammatus\Cron\BuildIn\Noop */
             new Action(
                 'cron_no.op',
-                120,
+                69,
                 '* * * * *',
                 fn () => $this->perform(\Mammatus\Cron\BuildIn\Noop::class),
             ),

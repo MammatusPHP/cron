@@ -16,7 +16,7 @@ final class CronJobsValuesTest extends TestCase
     public function none(): void
     {
         $values = new Values(new Values\Registry());
-        (new CronJobsValues())->values($values);
+        new CronJobsValues()->values($values);
 
         self::assertSame([
             'cronjobs' => [], // Empty array here because we don't have any default cronjobs running in Kubernetes out of the box
@@ -27,7 +27,7 @@ final class CronJobsValuesTest extends TestCase
     public function all(): void
     {
         $values = new Values(new Values\Registry());
-        (new CronJobsValues(false))->values($values);
+        new CronJobsValues(false)->values($values);
 
         self::assertSame([
             'cronjobs' => [
