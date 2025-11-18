@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Mammatus\Tests\Cron;
 
 use Mammatus\Cron\App;
-use Mammatus\Cron\BuildIn\Noop;
+use Mammatus\DevApp\Cron\Noop;
 use Mammatus\ExitCode;
 use Mockery;
 use PHPUnit\Framework\Attributes\Test;
@@ -73,6 +73,7 @@ final class AppTest extends AsyncTestCase
         $logger->expects('log')->with('debug', 'Getting job', ['cronjob' => Sad::class])->once();
         $logger->expects('log')->withArgs(static fn (string $type, string $message, array $context): bool => array_key_exists('cronjob', $context) && $context['cronjob'] === Sad::class && array_key_exists('exception', $context) && $context['exception'] instanceof RuntimeException && $context['exception']->getMessage() === 'Given job is not an action')->once();
 
+        /** @phpstan-ignore argument.type */
         $exitCode = new App($container, $eventDispatcher, $logger)->boot(new App\Cron(Sad::class));
 
         self::assertSame(ExitCode::Failure, $exitCode);

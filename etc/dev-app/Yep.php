@@ -2,15 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Mammatus\Cron\BuildIn;
+namespace Mammatus\DevApp\Cron;
 
 use Mammatus\Cron\Attributes\Cron;
 use Mammatus\Cron\Contracts\Action;
+use Mammatus\Kubernetes\Attributes\SplitOut;
 
 use function WyriHaximus\React\timedPromise;
 
-#[Cron(name: 'no.op', ttl: 69, schedule: '* * * * *')]
-final class Noop implements Action
+#[SplitOut]
+#[Cron(name: 'ye.et', ttl: 69, schedule: '* * * * *')]
+final class Yep implements Action
 {
     private const int INTERVAL = 3;
 

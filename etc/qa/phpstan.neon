@@ -4,12 +4,7 @@ parameters:
 		- ../../etc
 		- ../../src
 		- ../../tests
-	ignoreErrors:
-		- '#Method Mammatus\\Cron\\App::__construct\(\) has a parameter \$container with a type declaration of Psr\\Container\\ContainerInterface, but containers should not be injected.#'
-		- '#Method Mammatus\\Cron\\Manager::__construct\(\) has a parameter \$container with a type declaration of Psr\\Container\\ContainerInterface, but containers should not be injected.#'
-		-
-			message: '#Parameter \#1 \$className of class Mammatus\\Cron\\App\\Cron constructor expects class-string\<Mammatus\\Cron\\Contracts\\Action\>, string given.#'
-			path: ../../tests/AppTest.php
+		- ../dev-app
 	ergebnis:
 		noExtends:
 			classesAllowedToBeExtended:

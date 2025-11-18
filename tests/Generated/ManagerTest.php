@@ -2,12 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Mammatus\Tests\Cron;
+namespace Mammatus\Tests\Cron\Generated;
 
-use Mammatus\Cron\BuildIn\Noop;
-use Mammatus\Cron\Manager;
+use Mammatus\Cron\Generated\Manager;
+use Mammatus\DevApp\Cron\Noop;
 use Mammatus\LifeCycleEvents\Boot;
 use Mammatus\LifeCycleEvents\Shutdown;
+use Mammatus\Tests\Cron\Angry;
+use Mammatus\Tests\Cron\Sad;
 use Mockery;
 use PHPUnit\Framework\Attributes\Test;
 use Psr\Container\ContainerInterface;
