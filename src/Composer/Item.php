@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Mammatus\Cron\Composer;
 
 use JsonSerializable;
+use Mammatus\Cron\Action\Type;
 use Mammatus\Cron\Attributes\Cron;
 use WyriHaximus\Composer\GenerativePluginTooling\Item as ItemContract;
 
@@ -14,17 +15,17 @@ final readonly class Item implements ItemContract, JsonSerializable
     public function __construct(
         public string $class,
         public Cron $cron,
-        public bool $splitOut,
+        public Type $type,
     ) {
     }
 
-    /** @return array{class: class-string, cron: Cron, split_out: bool} */
+    /** @return array{class: class-string, cron: Cron, type: Type} */
     public function jsonSerialize(): array
     {
         return [
             'class' => $this->class,
             'cron' => $this->cron,
-            'split_out' => $this->splitOut,
+            'type' => $this->type,
         ];
     }
 }

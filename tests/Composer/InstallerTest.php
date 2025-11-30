@@ -13,7 +13,9 @@ use Composer\Repository\InstalledRepositoryInterface;
 use Composer\Repository\RepositoryManager;
 use Composer\Script\Event;
 use Composer\Script\ScriptEvents;
-use Mammatus\Cron\Composer\Installer;
+use Mammatus\Cron\Composer\CodeGenerator;
+use Mammatus\DevApp\Cron\Noop;
+use Mammatus\DevApp\Cron\Yep;
 use Mockery;
 use PHPUnit\Framework\Attributes\Test;
 use Symfony\Component\Console\Output\StreamOutput;
@@ -34,9 +36,9 @@ use function Safe\fopen;
 use function Safe\mkdir;
 use function Safe\opendir;
 use function Safe\stream_get_contents;
-use function Safe\unlink;
 use function sprintf;
 use function substr;
+use function touch;
 
 use const DIRECTORY_SEPARATOR;
 
@@ -45,7 +47,7 @@ final class InstallerTest extends TestCase
     #[Test]
     public function getSubscribedEvents(): void
     {
-        self::assertSame([ScriptEvents::PRE_AUTOLOAD_DUMP => 'findActions'], Installer::getSubscribedEvents());
+        self::assertSame([ScriptEvents::PRE_AUTOLOAD_DUMP => 'findActions'], CodeGenerator::getSubscribedEvents());
     }
 
     #[Test]
@@ -64,7 +66,10 @@ final class InstallerTest extends TestCase
             ],
         ]);
         $rootPackage->setAutoload([
-            'psr-4' => ['Mammatus\\Cron\\' => 'src'],
+            'psr-4' => [
+                'Mammatus\\Cron\\' => 'src',
+                'Mammatus\\DevApp\\Cron\\' => 'etc/dev-app',
+            ],
         ]);
 
         $io         = new class () extends NullIO {
@@ -105,7 +110,7 @@ final class InstallerTest extends TestCase
             $io,
         );
 
-        $installer = new Installer();
+        $installer = new CodeGenerator();
 
         // Test dead methods and make Infection happy
         $installer->activate($composer, $io);
@@ -114,27 +119,23 @@ final class InstallerTest extends TestCase
 
         $this->recurseCopy(dirname(__DIR__, 2) . '/', $this->getTmpDir());
 
-        $fileNameList = $this->getTmpDir() . 'src/Generated/AbstractList.php';
-        if (file_exists($fileNameList)) { /** @phpstan-ignore-line */
-            unlink($fileNameList);
-        }
+        $fileNameList    = $this->getTmpDir() . 'src/Generated/AbstractList.php';
+        $fileNameManager = $this->getTmpDir() . 'src/Generated/Manager.php';
+        $sneakyFile      = $this->getTmpDir() . 'src' . DIRECTORY_SEPARATOR . 'Generated' . DIRECTORY_SEPARATOR . 'sneaky.file';
+        touch($sneakyFile);
 
-        $fileNameManager = $this->getTmpDir() . 'src/Generated/AbstractManager.php';
-        if (file_exists($fileNameManager)) { /** @phpstan-ignore-line */
-            unlink($fileNameManager);
-        }
-
-        self::assertFileDoesNotExist($fileNameList);
-        self::assertFileDoesNotExist($fileNameManager);
+        self::assertFileExists($sneakyFile);
 
         // Do the actual generating
-        Installer::findActions($event);
+        CodeGenerator::findActions($event);
+
+        self::assertFileDoesNotExist($sneakyFile);
 
         $output = $io->output();
 
         self::assertStringContainsString('<info>mammatus/cron:</info> Locating actions', $output);
         self::assertStringContainsString('<info>mammatus/cron:</info> Generated static abstract action manager and action list in ', $output);
-        self::assertStringContainsString('<info>mammatus/cron:</info> Found 1 action(s)', $output);
+        self::assertStringContainsString('<info>mammatus/cron:</info> Found 2 action(s)', $output);
         //self::assertStringContainsString('<error>mammatus/cron:</error> An error occurred:  Cannot reflect "<fg=cyan>Mammatus\Cron\Manager</>": <fg=yellow>Roave\BetterReflection\Reflection\ReflectionClass "Mammatus\Cron\Generated\AbstractManager" could not be found in the located source</>', $output);
 
         self::assertFileExists($fileNameList);
@@ -142,6 +143,7 @@ final class InstallerTest extends TestCase
         self::assertTrue(in_array(
             substr(sprintf('%o', fileperms($fileNameList)), -4),
             [
+                '0764',
                 '0664',
                 '0666',
             ],
@@ -150,19 +152,24 @@ final class InstallerTest extends TestCase
         self::assertTrue(in_array(
             substr(sprintf('%o', fileperms($fileNameManager)), -4),
             [
+                '0764',
                 '0664',
                 '0666',
             ],
             true,
         ));
         $fileContentsList = file_get_contents($fileNameList);
-        self::assertStringContainsStringIgnoringCase(' * @see \Mammatus\Cron\BuildIn\Noop', $fileContentsList);
-        self::assertStringContainsStringIgnoringCase('yield \'internal-no.op-Mammatus-Cron-BuildIn-Noop\' => new Action(', $fileContentsList);
+        self::assertStringContainsStringIgnoringCase('* @see \\' . Noop::class, $fileContentsList);
+        self::assertStringContainsStringIgnoringCase('yield \'no.op-Mammatus-DevApp-Cron-Noop\' => new \Mammatus\Cron\Action(', $fileContentsList);
         self::assertStringContainsStringIgnoringCase('addOns: \json_decode(\'[]\', true),', $fileContentsList);
+        self::assertStringNotContainsStringIgnoringCase('type: Type::Kubernetes,', $fileContentsList);
         $fileContentsManager = file_get_contents($fileNameManager);
-        self::assertStringContainsStringIgnoringCase('/** @see \Mammatus\Cron\BuildIn\Noop */', $fileContentsManager);
-        self::assertStringContainsStringIgnoringCase('new Action(', $fileContentsManager);
-        self::assertStringContainsStringIgnoringCase('fn () => $this->perform(\Mammatus\Cron\BuildIn\Noop::class),', $fileContentsManager);
+        self::assertStringContainsStringIgnoringCase('* @see \\' . Noop::class . ' */', $fileContentsManager);
+        self::assertStringContainsStringIgnoringCase('new Cron\Action(', $fileContentsManager);
+        self::assertStringContainsStringIgnoringCase('fn () => $this->perform(\\' . Noop::class . '::class),', $fileContentsManager);
+        self::assertStringContainsStringIgnoringCase('cron_no.op', $fileContentsManager);
+        self::assertStringNotContainsStringIgnoringCase('cron_ye.et', $fileContentsManager);
+        self::assertStringNotContainsStringIgnoringCase('fn () => $this->perform(\\' . Yep::class . '::class),', $fileContentsManager);
     }
 
     private function recurseCopy(string $src, string $dst): void

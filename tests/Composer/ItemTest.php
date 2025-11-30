@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Mammatus\Tests\Cron\Composer;
 
+use Mammatus\Cron\Action\Type;
 use Mammatus\Cron\Attributes\Cron;
 use Mammatus\Cron\Composer\Item;
 use Mammatus\Kubernetes\Attributes\Resources;
@@ -28,10 +29,10 @@ final class ItemTest extends TestCase
                     memory: 3,
                 ),
             ),
-            false,
+            Type::Internal,
         );
         self::assertSame(
-            '{"class":"Mammatus\\\\Cron\\\\Composer\\\\Item","cron":{"addOns":[{"type":"container","helper":"mammatus.container.resources","arguments":{"cpu":"666m","memory":"3072Mi"}}],"name":"test","ttl":1337,"schedule":"* * * * *"},"split_out":false}',
+            '{"class":"Mammatus\\\\Cron\\\\Composer\\\\Item","cron":{"addOns":[{"type":"container","helper":"mammatus.container.resources","arguments":{"cpu":"666m","memory":"3072Mi"}}],"name":"test","ttl":1337,"schedule":"* * * * *"},"type":"internal"}',
             json_encode($item),
         );
     }

@@ -20,6 +20,7 @@ use WyriHaximus\PSR3\ContextLogger\ContextLogger;
 /** @implements Bootable<Cron> */
 final readonly class App implements Bootable
 {
+    /** @phpstan-ignore ergebnis.noParameterWithContainerTypeDeclaration */
     public function __construct(
         private ContainerInterface $container,
         private EventDispatcherInterface $eventDispatcher,

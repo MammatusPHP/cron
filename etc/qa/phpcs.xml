@@ -9,6 +9,7 @@
     <file>../../etc</file>
     <file>../../src</file>
     <file>../../tests</file>
+    <file>../dev-app</file>
 
     <rule ref="WyriHaximus-OSS" />
 </ruleset>

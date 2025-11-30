@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Mammatus\Cron\Composer;
 
+use Mammatus\Cron\Action\Type;
 use Mammatus\Cron\Attributes\Cron;
 use Mammatus\Kubernetes\Attributes\SplitOut;
 use Roave\BetterReflection\Reflection\ReflectionClass;
@@ -32,7 +33,7 @@ final class Collector implements ItemCollector
         yield new Item(
             $class->getName(),
             $attributes[Cron::class], /** @phpstan-ignore-line */
-            array_key_exists(SplitOut::class, $attributes),
+            array_key_exists(SplitOut::class, $attributes) ? Type::Kubernetes : Type::Internal,
         );
     }
 }
