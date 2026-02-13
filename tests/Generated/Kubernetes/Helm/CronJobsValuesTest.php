@@ -2,10 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Mammatus\Tests\Cron\Kubernetes\Helm;
+namespace Mammatus\Tests\Cron\Generated\Kubernetes\Helm;
 
-use Mammatus\Cron\Action\Type;
-use Mammatus\Cron\Kubernetes\Helm\CronJobsValues;
+use Mammatus\Cron\Generated\Kubernetes\Helm\CronJobsValues;
 use Mammatus\DevApp\Cron\Yep;
 use Mammatus\Kubernetes\Events\Helm\Values;
 use PHPUnit\Framework\Attributes\Test;
@@ -15,19 +14,6 @@ use const DIRECTORY_SEPARATOR;
 
 final class CronJobsValuesTest extends TestCase
 {
-    #[Test]
-    public function none(): void
-    {
-        $values = new Values(
-            new Values\Groups(),
-            new Values\Registry(),
-            Values\ValuesFile::createFromFile(__DIR__ . DIRECTORY_SEPARATOR . 'values.yaml'),
-        );
-        new CronJobsValues(Type::Daemon)->values($values);
-
-        self::assertSame([], $values->get());
-    }
-
     #[Test]
     public function all(): void
     {

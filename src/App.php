@@ -17,7 +17,10 @@ use RuntimeException;
 use Throwable;
 use WyriHaximus\PSR3\ContextLogger\ContextLogger;
 
-/** @implements Bootable<Cron> */
+/**
+ * @implements Bootable<Cron>
+ * @api
+ */
 final readonly class App implements Bootable
 {
     /** @phpstan-ignore ergebnis.noParameterWithContainerTypeDeclaration */
