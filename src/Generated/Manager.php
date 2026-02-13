@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Mammatus\Cron\Generated;
 
-use Mammatus\Cron\Contracts\Action;
-use Mammatus\DevApp\Cron\Noop;
 use Mammatus\LifeCycleEvents\Boot;
 use Mammatus\LifeCycleEvents\Shutdown;
 use Psr\Container\ContainerInterface;
@@ -23,7 +21,7 @@ use WyriHaximus\React\Mutex\Contracts\MutexInterface;
  */
 final class Manager implements AsyncListener
 {
-    private Cron|null $cron = null;
+    private ?Cron $cron = null;
 
     /** @phpstan-ignore ergebnis.noParameterWithContainerTypeDeclaration */
     public function __construct(
@@ -53,7 +51,7 @@ final class Manager implements AsyncListener
         try {
             $logger->debug('Getting job');
             $job = $this->container->get($class);
-            if (! ($job instanceof Action)) {
+            if (! ($job instanceof \Mammatus\Cron\Contracts\Action)) {
                 throw new RuntimeException('Given job is not an action');
             }
 
@@ -78,7 +76,7 @@ final class Manager implements AsyncListener
                 'cron_no.op',
                 69,
                 '* * * * *',
-                fn () => $this->perform(Noop::class),
+                fn () => $this->perform(\Mammatus\DevApp\Cron\Noop::class),
             ),
         );
 
