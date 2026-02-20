@@ -63,10 +63,16 @@ final class Plugin implements GenerativePlugin
             );
         }
 
+        /** @phpstan-ignore argument.type */
+        $kubernetesActions = array_filter($items, static fn (Item $item): bool => $item->type === Type::Kubernetes);
+        if (count($internalActions) <= 0) {
+            return;
+        }
+
         TwigFile::render(
-            $rootPath . '/etc/generated_templates/AbstractList.php.twig',
-            $rootPath . '/src/Generated/AbstractList.php',
-            ['actions' => $items],
+            $rootPath . '/etc/generated_templates/CronJobsValues.php.twig',
+            $rootPath . '/src/Generated/Kubernetes/Helm/CronJobsValues.php',
+            ['actions' => $kubernetesActions],
         );
     }
 }

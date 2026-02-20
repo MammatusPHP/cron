@@ -9,7 +9,11 @@ use Mammatus\Cron\Contracts\Action;
 
 final readonly class Cron implements Argv
 {
-    /** @param class-string<Action> $className */
+    /**
+     * @param class-string<Action> $className
+     *
+     * @api
+     */
     public function __construct(
         public string $className,
     ) {

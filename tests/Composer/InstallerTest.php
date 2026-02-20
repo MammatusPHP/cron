@@ -119,7 +119,7 @@ final class InstallerTest extends TestCase
 
         $this->recurseCopy(dirname(__DIR__, 2) . '/', $this->getTmpDir());
 
-        $fileNameList    = $this->getTmpDir() . 'src/Generated/AbstractList.php';
+        $fileNameCJV     = $this->getTmpDir() . 'src/Generated/Kubernetes/Helm/CronJobsValues.php';
         $fileNameManager = $this->getTmpDir() . 'src/Generated/Manager.php';
         $sneakyFile      = $this->getTmpDir() . 'src' . DIRECTORY_SEPARATOR . 'Generated' . DIRECTORY_SEPARATOR . 'sneaky.file';
         touch($sneakyFile);
@@ -138,10 +138,11 @@ final class InstallerTest extends TestCase
         self::assertStringContainsString('<info>mammatus/cron:</info> Found 2 action(s)', $output);
         //self::assertStringContainsString('<error>mammatus/cron:</error> An error occurred:  Cannot reflect "<fg=cyan>Mammatus\Cron\Manager</>": <fg=yellow>Roave\BetterReflection\Reflection\ReflectionClass "Mammatus\Cron\Generated\AbstractManager" could not be found in the located source</>', $output);
 
-        self::assertFileExists($fileNameList);
+        self::assertFileExists($fileNameCJV);
         self::assertFileExists($fileNameManager);
+
         self::assertTrue(in_array(
-            substr(sprintf('%o', fileperms($fileNameList)), -4),
+            substr(sprintf('%o', fileperms($fileNameCJV)), -4),
             [
                 '0764',
                 '0664',
@@ -158,11 +159,14 @@ final class InstallerTest extends TestCase
             ],
             true,
         ));
-        $fileContentsList = file_get_contents($fileNameList);
-        self::assertStringContainsStringIgnoringCase('* @see \\' . Noop::class, $fileContentsList);
-        self::assertStringContainsStringIgnoringCase('yield \'no.op-Mammatus-DevApp-Cron-Noop\' => new \Mammatus\Cron\Action(', $fileContentsList);
-        self::assertStringContainsStringIgnoringCase('addOns: \json_decode(\'[]\', true),', $fileContentsList);
-        self::assertStringNotContainsStringIgnoringCase('type: Type::Kubernetes,', $fileContentsList);
+
+        $fileContentsCJV = file_get_contents($fileNameCJV);
+        self::assertStringContainsStringIgnoringCase('\\' . Yep::class . '::class,', $fileContentsCJV);
+        self::assertStringContainsStringIgnoringCase('\'cron-ye-et\',', $fileContentsCJV);
+        self::assertStringContainsStringIgnoringCase('\json_decode(\'[]\', true),', $fileContentsCJV);
+        self::assertStringNotContainsStringIgnoringCase('cron-no-op', $fileContentsCJV);
+        self::assertStringNotContainsStringIgnoringCase('fn () => $this->perform(\\' . Noop::class . '::class),', $fileContentsCJV);
+
         $fileContentsManager = file_get_contents($fileNameManager);
         self::assertStringContainsStringIgnoringCase('* @see \\' . Noop::class . ' */', $fileContentsManager);
         self::assertStringContainsStringIgnoringCase('new Cron\Action(', $fileContentsManager);
@@ -175,7 +179,8 @@ final class InstallerTest extends TestCase
     private function recurseCopy(string $src, string $dst): void
     {
         $dir = opendir($src);
-        if (! file_exists($dst)) { /** @phpstan-ignore-line */
+        /** @phpstan-ignore wyrihaximus.reactphp.blocking.function.fileExists */
+        if (! file_exists($dst)) {
             mkdir($dst);
         }
 
@@ -184,10 +189,12 @@ final class InstallerTest extends TestCase
                 continue;
             }
 
-            if (is_dir($src . '/' . $file)) { /** @phpstan-ignore-line */
-                $this->recurseCopy($src . '/' . $file, $dst . '/' . $file);
-            } elseif (is_file($src . '/' . $file)) { /** @phpstan-ignore-line */
-                copy($src . '/' . $file, $dst . '/' . $file);
+            /** @phpstan-ignore wyrihaximus.reactphp.blocking.function.isDir */
+            if (is_dir($src . $file)) {
+                $this->recurseCopy($src . $file . DIRECTORY_SEPARATOR, $dst . $file . DIRECTORY_SEPARATOR);
+                /** @phpstan-ignore wyrihaximus.reactphp.blocking.function.isFile */
+            } elseif (is_file($src . $file)) {
+                copy($src . $file, $dst . $file);
             }
         }
 

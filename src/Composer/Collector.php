@@ -29,10 +29,13 @@ final class Collector implements ItemCollector
             return;
         }
 
-        /** @psalm-suppress ArgumentTypeCoercion */
+        if (! ($attributes[Cron::class] instanceof Cron)) {
+            return;
+        }
+
         yield new Item(
             $class->getName(),
-            $attributes[Cron::class], /** @phpstan-ignore-line */
+            $attributes[Cron::class],
             array_key_exists(SplitOut::class, $attributes) ? Type::Kubernetes : Type::Internal,
         );
     }

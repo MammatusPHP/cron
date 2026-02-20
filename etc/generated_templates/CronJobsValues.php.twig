@@ -1,0 +1,23 @@
+<?php declare(strict_types=1);
+
+namespace Mammatus\Cron\Generated\Kubernetes\Helm;
+
+use Mammatus\Kubernetes\Events\Helm\Values;
+use WyriHaximus\Broadcast\Contracts\Listener;
+
+final class CronJobsValues implements Listener
+{
+    public function values(Values $values): void
+    {
+        {% for action in actions -%}
+        $values->add(
+            new Values\Registry\CronJob(
+                'cron-{{ action.cron.name|replace({".": "-"}) }}',
+                \{{ action.class }}::class,
+                '{{ action.cron.schedule }}',
+                \json_decode('{{ action.cron.addOns|json_encode()|raw }}', true), /** @phpstan-ignore-line */
+            ),
+        );
+        {% endfor %}
+    }
+}

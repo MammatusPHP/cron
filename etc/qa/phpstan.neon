@@ -10,7 +10,5 @@ parameters:
 			classesAllowedToBeExtended:
 				- Composer\IO\NullIO
 				- ShipMonk\PHPStan\DeadCode\Provider\ReflectionBasedMemberUsageProvider
-				- Mammatus\Cron\Generated\AbstractList
-				- Mammatus\Cron\Generated\AbstractManager
 includes:
     - ../../extension.neon
