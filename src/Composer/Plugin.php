@@ -65,7 +65,7 @@ final class Plugin implements GenerativePlugin
 
         /** @phpstan-ignore argument.type */
         $kubernetesActions = array_filter($items, static fn (Item $item): bool => $item->type === Type::Kubernetes);
-        if (count($internalActions) <= 0) {
+        if (count($kubernetesActions) <= 0) {
             return;
         }
 
