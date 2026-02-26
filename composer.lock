@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "260e53564c51fcb69c22b2e549ae539c",
+    "content-hash": "75c0db57a7ed80433d5b7ab15793f2d6",
     "packages": [
         {
             "name": "bramus/ansi-php",
@@ -11696,16 +11696,16 @@
         },
         {
             "name": "wyrihaximus/makefiles",
-            "version": "0.9.0",
+            "version": "0.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/WyriHaximus/Makefiles.git",
-                "reference": "26137de124aa14e200f1e2db0902ef8d3d60c2bc"
+                "reference": "08442c6b6e564c6137ef34b029407b088c718b68"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WyriHaximus/Makefiles/zipball/26137de124aa14e200f1e2db0902ef8d3d60c2bc",
-                "reference": "26137de124aa14e200f1e2db0902ef8d3d60c2bc",
+                "url": "https://api.github.com/repos/WyriHaximus/Makefiles/zipball/08442c6b6e564c6137ef34b029407b088c718b68",
+                "reference": "08442c6b6e564c6137ef34b029407b088c718b68",
                 "shasum": ""
             },
             "require": {
@@ -11741,7 +11741,7 @@
             "description": "🧱 Makefile building blocks",
             "support": {
                 "issues": "https://github.com/WyriHaximus/Makefiles/issues",
-                "source": "https://github.com/WyriHaximus/Makefiles/tree/0.9.0"
+                "source": "https://github.com/WyriHaximus/Makefiles/tree/0.10.0"
             },
             "funding": [
                 {
@@ -11749,7 +11749,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-02-11T08:34:05+00:00"
+            "time": "2026-02-25T16:18:32+00:00"
         },
         {
             "name": "wyrihaximus/phpstan-react",
