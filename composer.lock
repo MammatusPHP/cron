@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "41678f024c699b71f3782441558a2e4d",
+    "content-hash": "14903fddd349243c52eda5f042750520",
     "packages": [
         {
             "name": "bramus/ansi-php",
@@ -5297,12 +5297,12 @@
             "version": "4.2.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/azjezz/psl.git",
+                "url": "https://github.com/php-standard-library/php-standard-library.git",
                 "reference": "28c6752857597a1bb6fa8be16678c144b9097ab8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/azjezz/psl/zipball/28c6752857597a1bb6fa8be16678c144b9097ab8",
+                "url": "https://api.github.com/repos/php-standard-library/php-standard-library/zipball/28c6752857597a1bb6fa8be16678c144b9097ab8",
                 "reference": "28c6752857597a1bb6fa8be16678c144b9097ab8",
                 "shasum": ""
             },
@@ -7936,11 +7936,11 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "2.1.39",
+            "version": "2.1.51",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/c6f73a2af4cbcd99c931d0fb8f08548cc0fa8224",
-                "reference": "c6f73a2af4cbcd99c931d0fb8f08548cc0fa8224",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/dc3b523c45e714c70de2ac5113b958223b55dc59",
+                "reference": "dc3b523c45e714c70de2ac5113b958223b55dc59",
                 "shasum": ""
             },
             "require": {
@@ -7985,7 +7985,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-02-11T14:48:56+00:00"
+            "time": "2026-04-21T18:22:01+00:00"
         },
         {
             "name": "phpstan/phpstan-deprecation-rules",
