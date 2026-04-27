@@ -11,7 +11,7 @@
     "mammatus/app": "dev-master",
     "mammatus/cron-attributes": "^2.0.1",
     "mammatus/cron-contracts": "^1.0.1",
-    "mammatus/groups": "^0.1.0",
+    "mammatus/groups": "^0.1.0 || ^0.2.0",
     "mammatus/kubernetes-attributes": "^1.0.0",
     "mammatus/kubernetes-contracts": "^1.0.0",
     "mammatus/kubernetes-events": "^3.0.0",
