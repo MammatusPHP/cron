@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Mammatus\Tests\Cron\Generated\Kubernetes\Helm;
+namespace Mammatus\Tests\Cron\Kubernetes\Helm;
 
 use Mammatus\Cron\Generated\Kubernetes\Helm\CronJobsValues;
 use Mammatus\DevApp\Cron\Yep;
