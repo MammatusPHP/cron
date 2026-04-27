@@ -51,14 +51,15 @@ final class Plugin implements GenerativePlugin
 
     public function compile(string $rootPath, ItemContract ...$items): void
     {
-        Remove::directoryContents($rootPath . '/src/Generated');
+        Remove::directoryContents($rootPath . '/src/Kubernetes');
+        Remove::file($rootPath . '/src/Manager.php');
 
         /** @phpstan-ignore argument.type */
         $internalActions = array_filter($items, static fn (Item $item): bool => $item->type === Type::Internal);
         if (count($internalActions) > 0) {
             TwigFile::render(
                 $rootPath . '/etc/generated_templates/Manager.php.twig',
-                $rootPath . '/src/Generated/Manager.php',
+                $rootPath . '/src/Manager.php',
                 ['actions' => $internalActions],
             );
         }
@@ -71,7 +72,7 @@ final class Plugin implements GenerativePlugin
 
         TwigFile::render(
             $rootPath . '/etc/generated_templates/CronJobsValues.php.twig',
-            $rootPath . '/src/Generated/Kubernetes/Helm/CronJobsValues.php',
+            $rootPath . '/src/Kubernetes/Helm/CronJobsValues.php',
             ['actions' => $kubernetesActions],
         );
     }
