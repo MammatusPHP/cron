@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Mammatus\Tests\Cron\Kubernetes\Helm;
 
-use Mammatus\Cron\Generated\Kubernetes\Helm\CronJobsValues;
+use Mammatus\Cron\Kubernetes\Helm\CronJobsValues;
 use Mammatus\DevApp\Cron\Yep;
 use Mammatus\Kubernetes\Events\Helm\Values;
 use PHPUnit\Framework\Attributes\Test;

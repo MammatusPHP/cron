@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Mammatus\Tests\Cron;
 
-use Mammatus\Cron\Generated\Manager;
+use Mammatus\Cron\Manager;
 use Mammatus\DevApp\Cron\Noop;
 use Mammatus\LifeCycleEvents\Boot;
 use Mammatus\LifeCycleEvents\Shutdown;
