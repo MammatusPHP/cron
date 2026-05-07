@@ -51,8 +51,8 @@ final class Plugin implements GenerativePlugin
 
     public function compile(string $rootPath, ItemContract ...$items): void
     {
-        Remove::directoryContents($rootPath . '/src/Kubernetes');
-        Remove::file($rootPath . '/src/Manager.php');
+        Remove::directoryContentsOnlyIfItExists($rootPath . '/src/Kubernetes');
+        Remove::fileOnlyIfItExists($rootPath . '/src/Manager.php');
 
         /** @phpstan-ignore argument.type */
         $internalActions = array_filter($items, static fn (Item $item): bool => $item->type === Type::Internal);
