@@ -11,7 +11,4 @@ enum Type: String
 
     // Runs a group process but with shared mutex
     case Internal = 'internal';
-
-    // Runs in a group process but without shared mutex: Meant to handle in processes cron jobs
-    case Daemon = 'daemon';
 }
