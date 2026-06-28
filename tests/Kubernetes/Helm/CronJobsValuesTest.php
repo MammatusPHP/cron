@@ -28,7 +28,15 @@ final class CronJobsValuesTest extends TestCase
                     'schedule' => '* * * * *',
                     'addOns' => [],
                 ],
-            ], // Empty array here because we don't have any default cronjobs running in Kubernetes out of the box
+            ],
+            'deployments' => [
+                'app' => [
+                    'name' => 'app',
+                    'command' => 'mammatus',
+                    'arguments' => ['app'],
+                    'addOns' => [],
+                ],
+            ],
         ], $values->get());
     }
 }
