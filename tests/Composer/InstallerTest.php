@@ -18,25 +18,27 @@ use Mammatus\DevApp\Cron\Noop;
 use Mammatus\DevApp\Cron\Yep;
 use Mockery;
 use PHPUnit\Framework\Attributes\Test;
+use RuntimeException;
 use Symfony\Component\Console\Output\StreamOutput;
 use WyriHaximus\TestUtilities\TestCase;
 
 use function closedir;
+use function copy;
 use function dirname;
 use function file_exists;
+use function file_get_contents;
+use function fileperms;
+use function fopen;
 use function fseek;
 use function in_array;
 use function is_dir;
 use function is_file;
+use function is_resource;
+use function mkdir;
+use function opendir;
 use function readdir;
-use function Safe\copy;
-use function Safe\file_get_contents;
-use function Safe\fileperms;
-use function Safe\fopen;
-use function Safe\mkdir;
-use function Safe\opendir;
-use function Safe\stream_get_contents;
 use function sprintf;
+use function stream_get_contents;
 use function substr;
 use function touch;
 
@@ -77,7 +79,13 @@ final class InstallerTest extends TestCase
 
             public function __construct()
             {
-                $this->output = new StreamOutput(fopen('php://memory', 'rw'), decorated: false);
+                /** @phpstan-ignore wyrihaximus.reactphp.blocking.function.fopen */
+                $stream = fopen('php://memory', 'rw');
+                if (! is_resource($stream)) {
+                    throw new RuntimeException('Failed to open memory stream');
+                }
+
+                $this->output = new StreamOutput($stream, decorated: false);
             }
 
             public function output(): string
@@ -87,10 +95,7 @@ final class InstallerTest extends TestCase
                 return stream_get_contents($this->output->getStream());
             }
 
-            /**
-             * @inheritDoc
-             * @phpstan-ignore typeCoverage.paramTypeCoverage
-             */
+            /** @inheritDoc */
             public function write($messages, bool $newline = true, int $verbosity = self::NORMAL): void
             {
                 $this->output->write($messages, $newline, $verbosity & StreamOutput::OUTPUT_RAW);
@@ -142,6 +147,7 @@ final class InstallerTest extends TestCase
         self::assertFileExists($fileNameManager);
 
         self::assertTrue(in_array(
+            /** @phpstan-ignore argument.type */
             substr(sprintf('%o', fileperms($fileNameCJV)), -4),
             [
                 '0764',
@@ -151,6 +157,7 @@ final class InstallerTest extends TestCase
             true,
         ));
         self::assertTrue(in_array(
+            /** @phpstan-ignore argument.type */
             substr(sprintf('%o', fileperms($fileNameManager)), -4),
             [
                 '0764',
@@ -160,14 +167,18 @@ final class InstallerTest extends TestCase
             true,
         ));
 
+        /** @phpstan-ignore wyrihaximus.reactphp.blocking.function.fileGetContents */
         $fileContentsCJV = file_get_contents($fileNameCJV);
+        self::assertIsString($fileContentsCJV);
         self::assertStringContainsStringIgnoringCase('\\' . Yep::class . '::class,', $fileContentsCJV);
         self::assertStringContainsStringIgnoringCase('\'cron-ye-et\',', $fileContentsCJV);
         self::assertStringContainsStringIgnoringCase('\json_decode(\'[]\', true),', $fileContentsCJV);
         self::assertStringNotContainsStringIgnoringCase('cron-no-op', $fileContentsCJV);
-        self::assertStringNotContainsStringIgnoringCase('fn () => $this->perform(\\' . Noop::class . '::class),', $fileContentsCJV);
+        self::assertStringNotContainsStringIgnoringCase('\\' . Noop::class . '::class,', $fileContentsCJV);
 
+        /** @phpstan-ignore wyrihaximus.reactphp.blocking.function.fileGetContents */
         $fileContentsManager = file_get_contents($fileNameManager);
+        self::assertIsString($fileContentsManager);
         self::assertStringContainsStringIgnoringCase('* @see \\' . Noop::class . ' */', $fileContentsManager);
         self::assertStringContainsStringIgnoringCase('new Cron\Action(', $fileContentsManager);
         self::assertStringContainsStringIgnoringCase('fn () => $this->perform(\\' . Noop::class . '::class),', $fileContentsManager);
@@ -179,8 +190,13 @@ final class InstallerTest extends TestCase
     private function recurseCopy(string $src, string $dst): void
     {
         $dir = opendir($src);
+        if (! is_resource($dir)) {
+            throw new RuntimeException(sprintf('Unable to open directory "%s"', $src));
+        }
+
         /** @phpstan-ignore wyrihaximus.reactphp.blocking.function.fileExists */
         if (! file_exists($dst)) {
+            /** @phpstan-ignore wyrihaximus.reactphp.blocking.function.mkdir */
             mkdir($dst);
         }
 
