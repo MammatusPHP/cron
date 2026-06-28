@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "03f58bcecf6811937d90838a1d71d19f",
+    "content-hash": "53b5ddca9ab93952e36ab364bf6731ca",
     "packages": [
         {
             "name": "bramus/ansi-php",
@@ -1366,16 +1366,16 @@
         },
         {
             "name": "mammatus/groups",
-            "version": "0.2.0",
+            "version": "0.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/MammatusPHP/groups.git",
-                "reference": "7caed69d49ab13387129487f30e37c43e6c37fc2"
+                "reference": "3ac7379777f60a46dabe5437af5b31ee458bf722"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/MammatusPHP/groups/zipball/7caed69d49ab13387129487f30e37c43e6c37fc2",
-                "reference": "7caed69d49ab13387129487f30e37c43e6c37fc2",
+                "url": "https://api.github.com/repos/MammatusPHP/groups/zipball/3ac7379777f60a46dabe5437af5b31ee458bf722",
+                "reference": "3ac7379777f60a46dabe5437af5b31ee458bf722",
                 "shasum": ""
             },
             "require": {
@@ -1385,17 +1385,17 @@
                 "php": "^8.4",
                 "psr/container": "^1 || ^2 || ^3",
                 "psr/log": "^3.0.2",
-                "roave/better-reflection": "^6.69.0",
+                "roave/better-reflection": "^6.71.0",
                 "wyrihaximus/broadcast-contracts": "^1.3.0",
-                "wyrihaximus/generative-composer-plugin-tooling": "^1.6.0"
+                "wyrihaximus/generative-composer-plugin-tooling": "^1.7.2"
             },
             "require-dev": {
                 "colinodell/psr-testlogger": "^1.3.1",
                 "pimple/pimple": "^3.6.2",
                 "shipmonk/dead-code-detector": "^0.14.1 || ^0.15 || ^1.1.0",
                 "wyrihaximus/broadcast": "^2.7.0",
-                "wyrihaximus/makefiles": "^0.10.4",
-                "wyrihaximus/test-utilities": "^12.2.0"
+                "wyrihaximus/makefiles": "^0.12.1",
+                "wyrihaximus/test-utilities": "^13.2.0"
             },
             "suggest": {
                 "shipmonk/dead-code-detector": "This package supports ^1 || ^0.15 || ^0.14.1 by hooking in and marking all listeners as alive"
@@ -1430,7 +1430,7 @@
             "description": "👩‍👩‍👧‍👦 All groups related tooling",
             "support": {
                 "issues": "https://github.com/MammatusPHP/groups/issues",
-                "source": "https://github.com/MammatusPHP/groups/tree/0.2.0"
+                "source": "https://github.com/MammatusPHP/groups/tree/0.3.0"
             },
             "funding": [
                 {
@@ -1438,7 +1438,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-04-27T10:44:15+00:00"
+            "time": "2026-06-27T11:45:12+00:00"
         },
         {
             "name": "mammatus/kubernetes-attributes",
@@ -1530,27 +1530,27 @@
         },
         {
             "name": "mammatus/kubernetes-events",
-            "version": "4.0.0",
+            "version": "5.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/MammatusPHP/kubernetes-events.git",
-                "reference": "b4f46668da931c4f584528ac8bcdbcdbade47269"
+                "reference": "f7a077401dbe88316006497e342a7be2504335c4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/MammatusPHP/kubernetes-events/zipball/b4f46668da931c4f584528ac8bcdbcdbade47269",
-                "reference": "b4f46668da931c4f584528ac8bcdbcdbade47269",
+                "url": "https://api.github.com/repos/MammatusPHP/kubernetes-events/zipball/f7a077401dbe88316006497e342a7be2504335c4",
+                "reference": "f7a077401dbe88316006497e342a7be2504335c4",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "^8.4",
-                "mammatus/groups": "^0.2.0",
+                "mammatus/groups": "^0.3.0",
                 "php": "^8.4",
-                "symfony/yaml": "^8.0.10"
+                "symfony/yaml": "^8.1.1"
             },
             "require-dev": {
-                "wyrihaximus/makefiles": "^0.10.6",
-                "wyrihaximus/test-utilities": "^12.2.0"
+                "wyrihaximus/makefiles": "^0.12.1",
+                "wyrihaximus/test-utilities": "^13.2.0"
             },
             "type": "library",
             "extra": {
@@ -1577,7 +1577,7 @@
             "description": "☸📣 Kubernetes related Events",
             "support": {
                 "issues": "https://github.com/MammatusPHP/kubernetes-events/issues",
-                "source": "https://github.com/MammatusPHP/kubernetes-events/tree/4.0.0"
+                "source": "https://github.com/MammatusPHP/kubernetes-events/tree/5.0.0"
             },
             "funding": [
                 {
@@ -1585,7 +1585,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-05-07T13:43:28+00:00"
+            "time": "2026-06-27T16:40:58+00:00"
         },
         {
             "name": "mammatus/life-cycle-events",
