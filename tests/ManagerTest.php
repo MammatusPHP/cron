@@ -22,9 +22,11 @@ use function array_key_exists;
 use function React\Async\await;
 use function React\Promise\Timer\sleep;
 
-#[TimeOut(666)]
+#[TimeOut(120)]
 final class ManagerTest extends AsyncTestCase
 {
+    private const float WAIT_FOR_CRON_TICK = 65.0;
+
     #[Test]
     public function runHappy(): void
     {
@@ -48,7 +50,7 @@ final class ManagerTest extends AsyncTestCase
             $container,
         );
         $manager->start(new Boot());
-        await(sleep(512));
+        await(sleep(self::WAIT_FOR_CRON_TICK));
         $manager->stop(new Shutdown());
     }
 
@@ -77,7 +79,7 @@ final class ManagerTest extends AsyncTestCase
             $container,
         );
         $manager->start(new Boot());
-        await(sleep(99));
+        await(sleep(self::WAIT_FOR_CRON_TICK));
         $manager->stop(new Shutdown());
     }
 
@@ -117,7 +119,7 @@ final class ManagerTest extends AsyncTestCase
             $container,
         );
         $manager->start(new Boot());
-        await(sleep(99));
+        await(sleep(self::WAIT_FOR_CRON_TICK));
         $manager->stop(new Shutdown());
     }
 }
