@@ -46,6 +46,13 @@ use const DIRECTORY_SEPARATOR;
 
 final class InstallerTest extends TestCase
 {
+    private const array COPY_EXCLUDES = [
+        '.git',
+        '.idea',
+        'tests',
+        'var',
+    ];
+
     #[Test]
     public function getSubscribedEvents(): void
     {
@@ -122,7 +129,7 @@ final class InstallerTest extends TestCase
         $installer->deactivate($composer, $io);
         $installer->uninstall($composer, $io);
 
-        $this->recurseCopy(dirname(__DIR__, 2) . '/', $this->getTmpDir());
+        $this->recurseCopy(dirname(__DIR__, 2) . DIRECTORY_SEPARATOR, $this->getTmpDir());
 
         $fileNameCJV     = $this->getTmpDir() . 'src/Kubernetes/Helm/CronJobsValues.php';
         $fileNameManager = $this->getTmpDir() . 'src/Manager.php';
@@ -197,11 +204,15 @@ final class InstallerTest extends TestCase
         /** @phpstan-ignore wyrihaximus.reactphp.blocking.function.fileExists */
         if (! file_exists($dst)) {
             /** @phpstan-ignore wyrihaximus.reactphp.blocking.function.mkdir */
-            mkdir($dst);
+            mkdir($dst, 0777, true);
         }
 
         while (( $file = readdir($dir)) !== false) {
             if (( $file === '.' ) || ( $file === '..' )) {
+                continue;
+            }
+
+            if (in_array($file, self::COPY_EXCLUDES, true)) {
                 continue;
             }
 
