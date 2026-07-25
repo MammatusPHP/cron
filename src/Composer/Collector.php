@@ -29,9 +29,12 @@ final class Collector implements ItemCollector
             return;
         }
 
+        // @codeCoverageIgnoreStart
         if (! ($attributes[Cron::class] instanceof Cron)) {
             return;
         }
+
+        // @codeCoverageIgnoreEnd
 
         yield new Item(
             $class->getName(),

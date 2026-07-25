@@ -9,6 +9,7 @@ use Mammatus\Cron\Composer\Collector;
 use Mammatus\Cron\Composer\Item;
 use Mammatus\DevApp\Cron\Noop;
 use Mammatus\DevApp\Cron\Yep;
+use Mammatus\Tests\Cron\Sad;
 use PHPUnit\Framework\Attributes\Test;
 use Roave\BetterReflection\Reflection\ReflectionClass;
 use WyriHaximus\TestUtilities\TestCase;
@@ -31,6 +32,14 @@ final class CollectorTest extends TestCase
             self::assertSame('* * * * *', $item->cron->schedule);
             self::assertCount(0, $item->cron->addOns);
         }
+    }
+
+    #[Test]
+    public function noCronAttribute(): void
+    {
+        $items = [...new Collector()->collect(ReflectionClass::createFromName(Sad::class))];
+
+        self::assertCount(0, $items);
     }
 
     #[Test]

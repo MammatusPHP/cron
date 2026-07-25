@@ -18,26 +18,6 @@
     "mutators": {
         "@default": true,
         "ArrayItemRemoval": false,
-        "Foreach_": false,
-        "DecrementInteger": {
-            "ignore": [
-                "Mammatus\\Cron\\Generated\\AbstractManager::cron"
-            ]
-        },
-        "IncrementInteger": {
-            "ignore": [
-                "Mammatus\\Cron\\Generated\\AbstractManager::cron"
-            ]
-        },
-        "FunctionCallRemoval": {
-            "ignore": [
-                "Mammatus\\Cron\\BuildIn\\Noop::perform"
-            ]
-        },
-        "LogicalNot": {
-            "ignore": [
-                "Mammatus\\Cron\\Composer\\Collector::collect"
-            ]
-        }
+        "Foreach_": false
     }
 }
