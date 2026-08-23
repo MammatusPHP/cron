@@ -1,14 +1,9 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 namespace Mammatus\Cron\Kubernetes\Helm;
 
-use Mammatus\DevApp\Cron\Yep;
 use Mammatus\Kubernetes\Events\Helm\Values;
 use WyriHaximus\Broadcast\Contracts\Listener;
-
-use function json_decode;
 
 final class CronJobsValues implements Listener
 {
@@ -17,10 +12,10 @@ final class CronJobsValues implements Listener
         $values->add(
             new Values\Registry\CronJob(
                 'cron-ye-et',
-                Yep::class,
+                \Mammatus\DevApp\Cron\Yep::class,
                 '* * * * *',
-                json_decode('[]', true),
+                \json_decode('[]', true), 
             ),
         );
-    }
+            }
 }
