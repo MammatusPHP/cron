@@ -19,5 +19,6 @@
         "@default": true,
         "ArrayItemRemoval": false,
         "Foreach_": false
-    }
+    },
+    "threads": 64
 }
