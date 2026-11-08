@@ -5,6 +5,13 @@ parameters:
 		- ../../src
 		- ../../tests
 		- ../dev-app
+	ignoreErrors:
+		-
+			identifier: wyrihaximus.reactphp.eventLoop.propertyLoopInterface
+			path: ../../tests/Stub/UsesControlledEventLoop.php
+		-
+			identifier: wyrihaximus.reactphp.eventLoop.passLoopInterface
+			path: ../../tests/Stub/UsesControlledEventLoop.php
 	ergebnis:
 		noExtends:
 			classesAllowedToBeExtended:
