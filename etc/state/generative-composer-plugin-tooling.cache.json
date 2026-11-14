@@ -251,11 +251,11 @@
     "failedReflections": [
         "Mammatus\\Cron\\Composer\\CodeGenerator",
         "Mammatus\\Cron\\Action\\Type",
+        "Mammatus\\Composer\\ContainerCompiler",
         "Mammatus\\ExitCode",
         "MammatusGeneratedCompiledContainer",
-        "Mammatus\\Composer\\ContainerCompiler",
-        "Mammatus\\Groups\\Type",
         "Mammatus\\Groups\\Composer\\Installer",
+        "Mammatus\\Groups\\Type",
         "Mammatus\\Kubernetes\\Events\\Helm\\Values\\Registry\\Section",
         "WyriHaximus\\Broadcast\\Composer\\Installer"
     ],
@@ -312,8 +312,8 @@
         "vendor\/wyrihaximus\/broadcast\/src\/Dummy\/AsyncListener.php": "637ba799e7ae0795a0d3bbb8042dd60c",
         "vendor\/wyrihaximus\/broadcast\/src\/Dummy\/Event.php": "eee7243b959b042edda703bee019fb49",
         "vendor\/wyrihaximus\/broadcast\/src\/Dummy\/Listener.php": "5233f4f45b2017ab27c3b06cb470f3a7",
-        "vendor\/wyrihaximus\/broadcast\/src\/Generated\/AbstractListenerProvider.php": "6f6fb64c918c3756bef38262e88c1fcc",
+        "vendor\/wyrihaximus\/broadcast\/src\/Generated\/AbstractListenerProvider.php": "2cc7907c6c80cd18759b9078a44517d5",
         "vendor\/wyrihaximus\/broadcast\/src\/PHPSan\/ShipMonkDeadCode.php": "b84f4bdbbd1605b7f6eefe6011a816f1"
     },
-    "installedJsonHash": "55ed08aebcedd4d2575759e330cbf1ca"
+    "installedJsonHash": "c53cda2e100b0ca5c1231596551d571c"
 }
